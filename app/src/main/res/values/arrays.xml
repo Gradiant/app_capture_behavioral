@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listSex">
+        <item>@string/woman</item>
+        <item>@string/man</item>
+    </string-array>
+
+    <string-array name="listSesion">
+        <item>@string/one</item>
+        <item>@string/two</item>
+        <item>@string/three</item>
+    </string-array>
+</resources>

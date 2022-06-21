@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "83470549263",
+    "firebase_url": "https://capturevoice-913ec-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "capturevoice-913ec",
+    "storage_bucket": "capturevoice-913ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83470549263:android:0ac71a4c3f2f23ba7ebe7a",
+        "android_client_info": {
+          "package_name": "com.example.capturebehavioral"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83470549263-5ij1kh2pctknvkacon2cfe3ctgi4p3p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMzjObG3jMVOqqQp0ojhAonLx59aP0scA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83470549263-5ij1kh2pctknvkacon2cfe3ctgi4p3p6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

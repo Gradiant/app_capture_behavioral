@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">CaptureBehavioral</string>
+
+    <string name="text_title">Rellene el formulario</string>
+    <string name="text_description">Seleccione su sexo y seleccione la sesión.</string>
+    <string name="text_email">Introduzca su email.</string>
+    <string name="text_description_audio">Mantenga pulsado el botón de grabar y diga la siguiente frase:</string>
+    <string name="text_audio">"En Addalia mi voz es mi contraseña"</string>
+
+    <string name="new_sesion">¿Empezar una nueva sesión?</string>
+    <string name="verification">¿Estás seguro de querer guardar este audio? Si el archivo ya existe se sobreescribirá</string>
+    <string name="permissions">"Necesita dar permisos para acceder a los archivos"</string>
+    <string name="text_sex">Sexo:</string>
+    <string name="text_sesion">Sesion:</string>
+
+    <string name="sesion_verification">¿Los datos introducidos son correctos? Puede modificarlos a continuación</string>
+    <string name="ok">Si</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="feedbackemail">Email</string>
+    <string name="feedbackname">Nombre</string>
+    <string name="feedbacklastname">Apellidos</string>
+    <string name="feedbackaddress">Dirección</string>
+    <string name="feedbackphone">Teléfono</string>
+
+    <string name="sex">Sexo</string>
+    <string name="woman">Mujer</string>
+    <string name="man">Hombre</string>
+
+    <string name="sesion">Sesion</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+
+    <string name="email_empty_error">Introduzca antes el email del usuario</string>
+    <string name="email_error">El email introducido no es válido. Pruebe otro.</string>
+
+    <string name="consent_title_1">Gradiant Speech  Verification Database</string>
+    <string name="consent_title_2">Consentimiento de captura de datos para la base de datos GSVD (Gradiant Speech  Verification Database)</string>
+
+    <string name="consent_description">
+        Firmando el presente documento, entiendo y consiento de forma libre y voluntaria que mis datos personales, incluyendo rasgos biométricos consistentes en audios con mi voz, nombre y datos de contacto (teléfono, dirección postal y correo electrónico), serán adquiridos, procesados y utilizados por el Centro Tecnolóxico de Telecomunicacións de Galicia, Gradiant, Carretera do Vilar nº 56-58, 36214 Vigo, Pontevedra, España, como controlador de la base de datos biométricos GSVD y en su condición de responsable de tratamiento de datos (en adelante Gradiant), de acuerdo con las leyes vigentes y con lo que se expone en el presente documento.\n
+        \n
+El objetivo de GSVD (Gradiant Speech Verification Database) es el de ser utilizada como referencia para el desarrollo y evaluación de un sistema biométrico de verificación hablante, utilizándose los datos de voz para desarrollar y diseñar diferentes algoritmos de reconocimiento y realizar experimentos comparativos sobre el rendimiento de los mismos.\n\n
+        Los algoritmos a desarrollar son algoritmos automáticos basados en el reconocimiento de patrones y aprendizaje máquina, y el proceso de desarrollo implicará la revisión manual de los datos para llevar a cabo el preprocesado y curado de los datos. Estos desarrollos serán realizados por Gradiant, y se utilizará infraestructura propia y dedicada ubicada en el Centro de Supercomputación de Galicia (CESGA). Los datos de contacto recogidos serán almacenados con la finalidad de realizar cualquier comunicación o notificación que fuese necesaria y para garantizar la trazabilidad de los datos biométricos en caso de que se desee llevar a cabo un borrado, obtención o rectificación de los mismos.
+Las medidas organizativas y de seguridad y los esquemas de protección de datos implementados por el controlador, se mantendrán durante la creación y distribución de la base de datos, siguiendo siempre las líneas impuestas por las respectivas Agencias Nacionales de Protección de Datos:
+    </string>
+
+    <string name="consent_link">
+        <a href="http://ec.europa.eu/justice_home/fsj/privacy/nationalcomm/index_en.html">http://ec.europa.eu/justice_home/fsj/privacy/nationalcomm/index_en.html</a>
+    </string>
+
+    <string name="consent_1">
+        Doy mi consentimiento para la captura y uso de los datos biométricos por parte de Gradiant en los términos arriba descritos. En caso de recogerse mis datos de forma remota, entiendo que el formulario en el que se han recogido los datos será escaneado y enviado a Gradiant de forma telemática.
+    </string>
+
+    <string name="consent_2">
+        Entiendo que la aportación de mis datos personales incluyendo los datos biométricos es voluntaria. Si no estoy de acuerdo con aportar los datos mencionados anteriormente, entiendo que no puedo participar como voluntario en la campaña de adquisición.
+    </string>
+
+    <string name="consent_3">
+        Entiendo que si los datos y resultados científicos fueran publicados, mi identidad permanecerá en todo caso confidencial.
+    </string>
+
+    <string name="consent_4">
+        Entiendo que la administración de mis datos personales y su utilización serán llevados a cabo por el controlador de la base de datos y responsable del tratamiento  (Gradiant).
+    </string>
+
+    <string name="consent_5">
+        Tengo derecho a solicitar acceso a mis datos personales, y a corregir y borrar, si es pertinente, mis datos personales de acuerdo con la legislación vigente. Con este objeto, puedo contactar con el controlador Gradiant mediante la dirección de correo electrónico biometrics.support@gradiant.org o en la dirección arriba indicada
+    </string>
+
+    <string name="consent_form">
+        He leído todo lo anteriormente expuesto y entiendo que disfruto de entera libertad para manifestar mi consentimiento, o no, con respecto a la adquisición y posterior procesamiento de mis datos biométricos y personales. Mediante la firma del presente documento, manifiesto y doy mi consentimiento de acuerdo a lo indicado anteriormente.
+    </string>
+
+    <string name="error_consent">Necesita aceptar todos los consentimientos para utilizar esta aplicación"</string>
+    <string name="error_empty">Los campos de nombre y apellidos son obligatorios"</string>
+</resources>
