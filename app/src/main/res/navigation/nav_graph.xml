@@ -2,14 +2,65 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/captureFragment"
+    app:startDestination="@id/requestFragment"
     android:id="@+id/nav_graph">
 
     <fragment
+        android:id="@+id/requestFragment"
+        android:name="com.example.capturebehavioural.ui.consent.RequestEmailFragment"
+        android:label="RequestEmailFragment"
+        tools:layout="@layout/request_email_fragment" >
+        <action
+            android:id="@+id/action_requestFragment_to_captureFragment"
+            app:destination="@id/captureFragment" />
+        <action
+            android:id="@+id/action_requestFragment_to_consentDetailFragment"
+            app:destination="@id/consentDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/consentFragment"
+        android:name="com.example.capturebehavioural.ui.consent.ConsentFragment"
+        android:label="ConsentFragment"
+        tools:layout="@layout/consent_fragment" >
+
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="false"/>
+        <action
+            android:id="@+id/action_consentFragment_to_captureFragment"
+            app:destination="@id/captureFragment" />
+    </fragment>
+
+        <fragment
+        android:id="@+id/consentDetailFragment"
+        android:name="com.example.capturebehavioural.ui.consent.ConsentDetailFragment"
+        android:label="ConsentDetailFragment"
+        tools:layout="@layout/consent_detail_fragment">
+            <argument
+                android:name="email"
+                app:argType="string"
+                app:nullable="false"/>
+            <action
+                android:id="@+id/action_consentDetailFragment_to_consentFragment"
+                app:destination="@id/consentFragment" />
+        </fragment>
+
+
+    <fragment
         android:id="@+id/captureFragment"
-        android:name="com.example.capturebehavioral.ui.capture.CaptureFragment"
+        android:name="com.example.capturebehavioural.ui.capture.CaptureFragment"
         android:label="CaptureFragment"
         tools:layout="@layout/capture_fragment" >
+
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="false"/>
+        <action
+            android:id="@+id/action_captureFragment_to_requestFragment"
+            app:destination="@id/requestFragment" />
     </fragment>
 
 </navigation>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CaptureBehavioral</string>
+    <string name="app_name">CaptureBehavioural</string>
 
     <string name="text_title">Rellene el formulario</string>
     <string name="text_description">Seleccione su sexo y seleccione la sesión.</string>
@@ -35,7 +35,7 @@
     <string name="email_empty_error">Introduzca antes el email del usuario</string>
     <string name="email_error">El email introducido no es válido. Pruebe otro.</string>
 
-    <string name="consent_title_1">Gradiant Speech  Verification Database</string>
+    <string name="consent_title_1">Gradiant Behavioural Database</string>
     <string name="consent_title_2">Consentimiento de captura de datos para la base de datos GSVD (Gradiant Speech  Verification Database)</string>
 
     <string name="consent_description">
