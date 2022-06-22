@@ -6,7 +6,7 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "CaptureBehavioral"
+rootProject.name = "CaptureBehavioural"
 include ':app'
 include ':domain'
 include ':data'
