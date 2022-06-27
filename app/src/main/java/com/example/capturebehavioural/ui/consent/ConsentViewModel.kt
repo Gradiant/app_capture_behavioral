@@ -9,9 +9,11 @@ import com.example.data.FirebaseRepository
 import com.example.domain.Consents
 import com.example.domain.Response
 import com.example.domain.User
+import com.example.usecases.SaveUserConsentFirebase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,7 +23,7 @@ class ConsentViewModel: ViewModel() {
 
     private var consent = 0
 
-    //private val saveUserConsent = SaveUserConsentFirebase(FirebaseRepository(FirebaseDatabase()))
+    private val saveUserConsent = SaveUserConsentFirebase(FirebaseRepository(FirebaseDatabase()))
 
     private val _consentState : MutableStateFlow<ConsentState?> = MutableStateFlow(null)
     val consentState: StateFlow<ConsentState?> get() = _consentState
@@ -88,7 +90,7 @@ class ConsentViewModel: ViewModel() {
         val sdf = SimpleDateFormat("dd/M/yyyy")
         val date = sdf.format(Date())
         viewModelScope.launch {
-        /*    saveUserConsent.invoke(User( name,
+            saveUserConsent.invoke(User( name,
                 lastName,
                 address,
                 phone,
@@ -112,7 +114,7 @@ class ConsentViewModel: ViewModel() {
                             Response.Error("Error desconocido")
                     }
                 }
-            }*/
+            }
         }
     }
 
