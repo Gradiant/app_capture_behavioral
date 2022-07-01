@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="listSex">
-        <item>@string/woman</item>
-        <item>@string/man</item>
+    <string-array name="listCountry">
+        <item>@string/spain</item>
+        <item>@string/arg</item>
+        <item>@string/mex</item>
+        <item>@string/others</item>
+    </string-array>
+
+    <string-array name="listDoc">
+        <item>@string/id</item>
+        <item>@string/NIE</item>
+        <item>@string/pass</item>
     </string-array>
 
     <string-array name="listSesion">

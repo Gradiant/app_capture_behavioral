@@ -1,40 +1,12 @@
 <resources>
     <string name="app_name">CaptureBehavioural</string>
 
-    <string name="text_title">Rellene el formulario</string>
-    <string name="text_description">Seleccione su sexo y seleccione la sesión.</string>
-    <string name="text_email">Introduzca su email.</string>
-    <string name="text_description_audio">Mantenga pulsado el botón de grabar y diga la siguiente frase:</string>
-    <string name="text_audio">"En Addalia mi voz es mi contraseña"</string>
-
-    <string name="new_sesion">¿Empezar una nueva sesión?</string>
-    <string name="verification">¿Estás seguro de querer guardar este audio? Si el archivo ya existe se sobreescribirá</string>
-    <string name="permissions">"Necesita dar permisos para acceder a los archivos"</string>
-    <string name="text_sex">Sexo:</string>
-    <string name="text_sesion">Sesion:</string>
-
-    <string name="sesion_verification">¿Los datos introducidos son correctos? Puede modificarlos a continuación</string>
-    <string name="ok">Si</string>
-    <string name="cancel">Cancelar</string>
-
-    <string name="feedbackemail">Email</string>
-    <string name="feedbackname">Nombre</string>
-    <string name="feedbacklastname">Apellidos</string>
-    <string name="feedbackaddress">Dirección</string>
-    <string name="feedbackphone">Teléfono</string>
-
-    <string name="sex">Sexo</string>
-    <string name="woman">Mujer</string>
-    <string name="man">Hombre</string>
-
-    <string name="sesion">Sesion</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-
+    <!-- Pantalla de inicio -->
     <string name="email_empty_error">Introduzca antes el email del usuario</string>
     <string name="email_error">El email introducido no es válido. Pruebe otro.</string>
+    <string name="text_email">Introduzca su email.</string>
 
+    <!-- Consentimientos -->
     <string name="consent_title_1">Gradiant Behavioural Database</string>
     <string name="consent_title_2">Consentimiento de captura de datos para la base de datos GSVD (Gradiant Speech  Verification Database)</string>
 
@@ -75,5 +47,70 @@ Las medidas organizativas y de seguridad y los esquemas de protección de datos 
     </string>
 
     <string name="error_consent">Necesita aceptar todos los consentimientos para utilizar esta aplicación"</string>
+
+    <string name="feedbackemail">Email</string>
+    <string name="feedbackname">Nombre</string>
+    <string name="feedbacklastname">Apellidos</string>
+    <string name="feedbackaddress">Dirección</string>
+    <string name="feedbackphone">Teléfono</string>
+
     <string name="error_empty">Los campos de nombre y apellidos son obligatorios"</string>
+
+    <!-- Pantalla de sesión -->
+    <string name="season_title">Captura de datos</string>
+    <string name="new_sesion">Si quieres empezar una nueva sesión, seleccione el número.</string>
+    <string name="verification">¿Estás seguro de querer guardar este audio? Si el archivo ya existe se sobreescribirá</string>
+    <string name="permissions">"Necesita dar permisos para acceder a los archivos"</string>
+    <string name="text_sesion">Sesion:</string>
+
+    <string name="sesion">Sesion</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+
+
+    <!-- Dialogo politica -->
+    <string name="title_politics">Título 1</string>
+    <string name="subtitle_politics">Lorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.
+
+Per dignissim natoque hendrerit tempus tellus ultricies dapibus luctus congue vulputate porttitor fames risus dis varius, cubilia a tincidunt integer egestas nec quam placerat vitae ligula suspendisse in nam. Libero nascetur cursus volutpat scelerisque porta mollis, sapien viverra sollicitudin potenti etiam donec, aliquam semper cum accumsan sagittis. Praesent mus rutrum sociis proin ligula fames magna, semper fermentum quisque porttitor diam laoreet massa fusce, sapien litora in elementum lacinia est.
+
+Curabitur luctus montes inceptos nunc id velit dictumst platea, laoreet class eros sociis mauris magnis praesent hac, sagittis auctor sollicitudin ac conubia lobortis imperdiet. Blandit vestibulum bibendum mattis taciti, mollis semper suspendisse hendrerit, conubia massa in. Condimentum laoreet nascetur vestibulum non litora molestie inceptos justo sed iaculis dis, metus in convallis lacinia aptent fermentum mi placerat dictumst augue lectus fusce, turpis cum curae cubilia curabitur massa nunc accumsan netus rhoncus.
+
+Non dignissim ultricies at laoreet massa volutpat sed nisl lobortis, vivamus magna commodo ultrices feugiat dapibus libero vestibulum mi fames, tellus neque metus consequat morbi potenti sapien suscipit. Nisi ultrices donec sociosqu mus sollicitudin ligula potenti per turpis, imperdiet neque sagittis phasellus natoque nullam nostra dapibus. Nam nibh hac bibendum enim sagittis erat, inceptos turpis condimentum eu netus suspendisse placerat, nullam fringilla habitant ad quam.
+
+Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisque metus a suspendisse nulla dis. Pretium mi vehicula venenatis montes semper maecenas imperdiet habitasse posuere, augue aenean sapien elementum nibh habitant iaculis tortor, placerat torquent vulputate netus blandit rhoncus proin facilisis. Fermentum dictum venenatis ultrices rutrum lacinia, cum primis id curae in, auctor praesent pretium luctus. Bibendum aenean a mollis luctus ridiculus torquent tellus urna at, senectus lobortis mattis augue pharetra dapibus sollicitudin scelerisque, himenaeos libero mi dis elementum interdum fringilla id.
+
+<p>Lorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.</p>
+
+<p>Per dignissim natoque hendrerit tempus tellus ultricies dapibus luctus congue vulputate porttitor fames risus dis varius, cubilia a tincidunt integer egestas nec quam placerat vitae ligula suspendisse in nam. Libero nascetur cursus volutpat scelerisque porta mollis, sapien viverra sollicitudin potenti etiam donec, aliquam semper cum accumsan sagittis. Praesent mus rutrum sociis proin ligula fames magna, semper fermentum quisque porttitor diam laoreet massa fusce, sapien litora in elementum lacinia est.</p>
+
+<p>Curabitur luctus montes inceptos nunc id velit dictumst platea, laoreet class eros sociis mauris magnis praesent hac, sagittis auctor sollicitudin ac conubia lobortis imperdiet. Blandit vestibulum bibendum mattis taciti, mollis semper suspendisse hendrerit, conubia massa in. Condimentum laoreet nascetur vestibulum non litora molestie inceptos justo sed iaculis dis, metus in convallis lacinia aptent fermentum mi placerat dictumst augue lectus fusce, turpis cum curae cubilia curabitur massa nunc accumsan netus rhoncus.</p>
+
+<p>Non dignissim ultricies at laoreet massa volutpat sed nisl lobortis, vivamus magna commodo ultrices feugiat dapibus libero vestibulum mi fames, tellus neque metus consequat morbi potenti sapien suscipit. Nisi ultrices donec sociosqu mus sollicitudin ligula potenti per turpis, imperdiet neque sagittis phasellus natoque nullam nostra dapibus. Nam nibh hac bibendum enim sagittis erat, inceptos turpis condimentum eu netus suspendisse placerat, nullam fringilla habitant ad quam.</p>
+
+<p>Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisque metus a suspendisse nulla dis. Pretium mi vehicula venenatis montes semper maecenas imperdiet habitasse posuere, augue aenean sapien elementum nibh habitant iaculis tortor, placerat torquent vulputate netus blandit rhoncus proin facilisis. Fermentum dictum venenatis ultrices rutrum lacinia, cum primis id curae in, auctor praesent pretium luctus. Bibendum aenean a mollis luctus ridiculus torquent tellus urna at, senectus lobortis mattis augue pharetra dapibus sollicitudin scelerisque, himenaeos libero mi dis elementum interdum fringilla id.</p>
+</string>
+
+    <string name="back_politics">Volver</string>
+
+    <!-- Pantalla de captura -->
+    <string name="title_principal">Has empezado la sesión de captura de datos.</string>
+    <string name="title_capture_one">Completa las acciones que se indiquen a continuación.</string>
+    <string name="title_capture_two">Seleccione un país y un tipo de documento.</string>
+    <string name="click_capture">Pulsa en el recuadro</string>
+    <string name="capture">Capturar</string>
+    <string name="cont">Continuar</string>
+    <string name="start">Comenzar</string>
+    <string name="add">Añadir</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="spain">ESP - España</string>
+    <string name="arg">ARG - Argentina</string>
+    <string name="mex">MEX - México</string>
+    <string name="others">OTROS - Otros</string>
+
+    <string name="id">Documento de identidad</string>
+    <string name="NIE">NIE</string>
+    <string name="pass">Pasaporte</string>
 </resources>

@@ -72,7 +72,7 @@ class ConsentFragment: Fragment() {
                 //do nothing
             }
             is Response.Success -> {
-                val action = ConsentFragmentDirections.actionConsentFragmentToCaptureFragment(email)
+                val action = ConsentFragmentDirections.actionConsentFragmentToSeasonFragment(email)
                 view?.findNavController()?.navigate(action)
             }
         }

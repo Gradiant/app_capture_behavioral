@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_32"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/season_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/new_sesion"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/textSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/text_sesion"
+        android:textColor="@color/black"
+        android:focusableInTouchMode="true"
+        app:layout_constraintLeft_toLeftOf="@id/description"
+        app:layout_constraintTop_toBottomOf="@id/description"/>
+
+    <Spinner
+        android:id="@+id/spinnerSesion"
+        android:layout_height="wrap_content"
+        android:prompt="@string/sesion"
+        android:layout_width="wrap_content"
+        android:clickable="true"
+        android:layout_marginStart="@dimen/margin_40"
+        android:focusableInTouchMode="true"
+        app:layout_constraintStart_toEndOf="@id/textSesion"
+        app:layout_constraintTop_toTopOf="@id/textSesion"
+        app:layout_constraintBottom_toBottomOf="@id/textSesion"
+        android:entries="@array/listSesion">
+    </Spinner>
+
+    <Button
+        android:id="@+id/btNewSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinnerSesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green"
+        android:layout_marginTop="@dimen/margin_40"
+        android:text="Empezar sesión"/>
+
+    <Button
+        android:id="@+id/btNewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btNewSeason"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green"
+        android:layout_marginTop="@dimen/margin_40"
+        android:text="Nuevo usuario"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
