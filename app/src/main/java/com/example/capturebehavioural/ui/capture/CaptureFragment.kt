@@ -1,6 +1,7 @@
 package com.example.capturebehavioural.ui.capture
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -12,8 +13,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import com.example.capturebehavioural.R
 import com.example.capturebehavioural.databinding.CaptureFragmentBinding
+import com.example.capturebehavioural.ui.consent.ConsentViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @ExperimentalCoroutinesApi
 class CaptureFragment: Fragment(), SensorEventListener {
@@ -23,6 +32,7 @@ class CaptureFragment: Fragment(), SensorEventListener {
     private var acelSensor: Sensor? = null
     private var gyrosSensor: Sensor? = null
 
+    private var dialog: AlertDialog? = null
 
     private lateinit var binding: CaptureFragmentBinding
     private lateinit var viewModel: CaptureViewModel
@@ -38,12 +48,34 @@ class CaptureFragment: Fragment(), SensorEventListener {
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-       /* val deviceSensors: List<Sensor> = sensorManager.getSensorList(Sensor.TYPE_ALL)
+        viewModel = ViewModelProvider(this,
+            CaptureViewModel.MainViewModelFactory()
+        )[CaptureViewModel::class.java]
 
-        for (sensors in deviceSensors) {
-            binding.tv.append(sensors.toString() + "\n\n")
-        }*/
+        sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+        viewModel.captureState
+            .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+            .onEach { state -> updateUI(state) }
+            .launchIn(lifecycleScope)
+
+        binding.btStart.setOnClickListener {
+            viewModel.clickStart()
+        }
+
+        binding.tbNext.setOnClickListener {
+            viewModel.clickNext()
+        }
+
+        binding.btCapture.setOnClickListener {
+            viewModel.clickCapture()
+        }
+
+        /* val deviceSensors: List<Sensor> = sensorManager.getSensorList(Sensor.TYPE_ALL)
+
+         for (sensors in deviceSensors) {
+             binding.tv.append(sensors.toString() + "\n\n")
+         }*/
 
         linearAcelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
         acelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
@@ -54,6 +86,42 @@ class CaptureFragment: Fragment(), SensorEventListener {
         } else {
             // Failure! No magnetometer.
         }*/
+    }
+
+    private fun updateUI(state: CaptureState?) {
+        when(state) {
+            is CaptureState.Next -> {
+                binding.clDoc.visibility = View.GONE
+                binding.clCapture.visibility = View.VISIBLE
+            }
+            is CaptureState.Start -> {
+                binding.titlePrincipal.visibility = View.INVISIBLE
+                binding.title.text = resources.getString(R.string.title_capture_two)
+
+                binding.btStart.visibility = View.GONE
+                binding.clDoc.visibility = View.VISIBLE
+            }
+            is CaptureState.Capture -> {
+                binding.clCapture.visibility = View.GONE
+                binding.btRecCapt.visibility = View.VISIBLE
+            }
+            is CaptureState.Dialog  -> {
+                if(dialog == null || (dialog != null && !dialog!!.isShowing)) {
+                    val view = layoutInflater.inflate(R.layout.dialog_politics, null)
+
+                    val builder = AlertDialog.Builder(context)
+                    builder.setPositiveButton(resources.getString(R.string.back_politics)) {
+                                _, _ ->
+                        dialog?.dismiss()
+                            //val nameAudio = email + "_" + spSex.selectedItem.toString().lowercase() + "_" + resources.getString(R.string.sesion).lowercase() + "_" + spSesion.selectedItem
+                        }
+
+                    builder.setView(view)
+                    dialog = builder.create()
+                    dialog?.show()
+                }
+            }
+        }
     }
 
     override fun onSensorChanged(event: SensorEvent?) {

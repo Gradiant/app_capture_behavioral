@@ -17,31 +17,142 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/margin_32">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et"
-                app:layout_constraintTop_toTopOf="parent"
-                android:hint="Nombre de usuario"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt"
-                android:text="Login"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/et"
-                android:layout_margin="@dimen/margin_32"/>
-
             <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
+                android:id="@+id/titlePrincipal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1000dp"
-                app:layout_constraintTop_toBottomOf="@id/bt"
+                android:textSize="16dp"
+                android:layout_marginTop="@dimen/margin_20"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="Este es el final de la pantalla">
+                android:text="@string/title_principal">
             </TextView>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                android:textSize="16dp"
+                app:layout_constraintTop_toBottomOf="@id/titlePrincipal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/title_capture_one">
+            </TextView>
+
+            <Button
+                android:id="@+id/btStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                android:layout_marginTop="@dimen/margin_32"
+                android:text="@string/start">
+            </Button>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clDoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title">
+
+                <Spinner
+                    android:id="@+id/spinnerOne"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/margin_32"
+                    android:padding="@dimen/margin_10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:focusableInTouchMode="true"
+                    android:entries="@array/listCountry">
+                </Spinner>
+
+                <Spinner
+                    android:id="@+id/spinnerTwo"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:padding="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerOne"
+                    android:focusableInTouchMode="true"
+                    android:entries="@array/listDoc">
+                </Spinner>
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/cbAccept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_32"
+                    android:padding="@dimen/margin_10"
+                    android:text="Acepto"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerTwo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+                </androidx.appcompat.widget.AppCompatCheckBox>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tbNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbAccept"
+                    android:layout_margin="@dimen/margin_32"
+                    android:text="@string/cont">
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCapture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title">
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_mic"
+                    android:layout_marginBottom="@dimen/margin_32"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </ImageView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btCapture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/capture"
+                    android:layout_margin="@dimen/margin_32"
+                    app:layout_constraintTop_toBottomOf="@id/iv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRecCapt"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:text="Pulsar"
+                android:visibility="gone"
+                android:layout_margin="@dimen/margin_32"
+                app:layout_constraintTop_toBottomOf="@id/title">
+
+            </androidx.appcompat.widget.AppCompatButton>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

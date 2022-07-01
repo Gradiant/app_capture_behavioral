@@ -83,7 +83,7 @@ class RequestEmailFragment : Fragment() {
             is RequestEmailState.FormatError -> showMessageError(getString(R.string.email_error))
             is RequestEmailState.EmailRegistered -> {
                 val action =
-                    RequestEmailFragmentDirections.actionRequestFragmentToCaptureFragment(binding.editTextEmail.text.toString())
+                    RequestEmailFragmentDirections.actionRequestFragmentToSeasonFragment(binding.editTextEmail.text.toString())
                 view?.findNavController()?.navigate(action)
             }
             is RequestEmailState.NewEmail -> {
