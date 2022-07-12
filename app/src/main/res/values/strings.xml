@@ -7,15 +7,17 @@
     <string name="text_email">Introduzca su email.</string>
 
     <!-- Consentimientos -->
-    <string name="consent_title_1">Gradiant Behavioural Database</string>
-    <string name="consent_title_2">Consentimiento de captura de datos para la base de datos GSVD (Gradiant Speech  Verification Database)</string>
+    <string name="consent_title_1">Gradiant Behavioural  Verification Database</string>
+    <string name="consent_title_2">Consentimiento de captura de datos para la base de datos GBVD (Gradiant Behavioural  Verification Database)</string>
 
     <string name="consent_description">
-        Firmando el presente documento, entiendo y consiento de forma libre y voluntaria que mis datos personales, incluyendo rasgos biométricos consistentes en audios con mi voz, nombre y datos de contacto (teléfono, dirección postal y correo electrónico), serán adquiridos, procesados y utilizados por el Centro Tecnolóxico de Telecomunicacións de Galicia, Gradiant, Carretera do Vilar nº 56-58, 36214 Vigo, Pontevedra, España, como controlador de la base de datos biométricos GSVD y en su condición de responsable de tratamiento de datos (en adelante Gradiant), de acuerdo con las leyes vigentes y con lo que se expone en el presente documento.\n
-        \n
-El objetivo de GSVD (Gradiant Speech Verification Database) es el de ser utilizada como referencia para el desarrollo y evaluación de un sistema biométrico de verificación hablante, utilizándose los datos de voz para desarrollar y diseñar diferentes algoritmos de reconocimiento y realizar experimentos comparativos sobre el rendimiento de los mismos.\n\n
-        Los algoritmos a desarrollar son algoritmos automáticos basados en el reconocimiento de patrones y aprendizaje máquina, y el proceso de desarrollo implicará la revisión manual de los datos para llevar a cabo el preprocesado y curado de los datos. Estos desarrollos serán realizados por Gradiant, y se utilizará infraestructura propia y dedicada ubicada en el Centro de Supercomputación de Galicia (CESGA). Los datos de contacto recogidos serán almacenados con la finalidad de realizar cualquier comunicación o notificación que fuese necesaria y para garantizar la trazabilidad de los datos biométricos en caso de que se desee llevar a cabo un borrado, obtención o rectificación de los mismos.
-Las medidas organizativas y de seguridad y los esquemas de protección de datos implementados por el controlador, se mantendrán durante la creación y distribución de la base de datos, siguiendo siempre las líneas impuestas por las respectivas Agencias Nacionales de Protección de Datos:
+        Firmando el presente documento, entiendo y consiento de forma libre y voluntaria que mis datos personales, incluyendo rasgos biométricos consistentes en datos de comportamiento extraídos de mi interacción con el móvil (datos de acelerómetros, giroscopio, gestos, scroll y escritura), nombre y datos de contacto (teléfono, dirección postal y correo electrónico), serán adquiridos, procesados y utilizados por el Centro Tecnolóxico de Telecomunicacións de Galicia, Gradiant, Carretera do Vilar nº 56-58, 36214 Vigo, Pontevedra, España, como controlador de la base de datos biométricos GBVD y en su condición de responsable de tratamiento de datos (en adelante Gradiant), de acuerdo con las leyes vigentes y con lo que se expone en el presente documento.\n
+
+El objetivo de GBVD (Gradiant Behavioural Verification Database) es el de ser utilizada como referencia para el desarrollo y evaluación de un sistema biométrico de verificación de usuario, utilizándose los datos de comportamiento para desarrollar y diseñar diferentes algoritmos de reconocimiento y realizar experimentos comparativos sobre el rendimiento de los mismos.
+        Estos desarrollos serán realizados por Gradiant, y se utilizará infraestructura propia y dedicada ubicada en el Centro de Supercomputación de Galicia (CESGA). Los datos de contacto recogidos serán almacenados con la finalidad de realizar cualquier comunicación o notificación que fuese necesaria y para garantizar la trazabilidad de los datos biométricos en caso de que se desee llevar a cabo un borrado, obtención o rectificación de los mismos. \n\n
+
+Las medidas organizativas y de seguridad y los esquemas de protección de datos implementados por el controlador, se mantendrán durante la creación y distribución de la base de datos, siguiendo siempre las líneas impuestas por las respectivas Agencias Nacionales de Protección de Datos: \n\n
+
     </string>
 
     <string name="consent_link">
@@ -70,6 +72,7 @@ Las medidas organizativas y de seguridad y los esquemas de protección de datos 
 
 
     <!-- Dialogo politica -->
+    <string name="this_info"><u>esta información</u></string>
     <string name="title_politics">Título 1</string>
     <string name="subtitle_politics">Lorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.
 
@@ -95,22 +98,199 @@ Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisq
     <string name="back_politics">Volver</string>
 
     <!-- Pantalla de captura -->
-    <string name="title_principal">Has empezado la sesión de captura de datos.</string>
-    <string name="title_capture_one">Completa las acciones que se indiquen a continuación.</string>
-    <string name="title_capture_two">Seleccione un país y un tipo de documento.</string>
+    <string name="title_principal">Has empezado la sesión de captura de datos. Sigue las pautas que se den a continuación.</string>
+    <string name="title_capture_one">Responda las siguientes preguntas de cultura general.</string>
+    <string name="title_capture_two">Para finalizar, completa las acciones que se indiquen a continuación.</string>
+    <string name="title_capture_three">Observa las imágenes y selecciona lo primero que te venga a la cabeza.</string>
+    <string name="title_capture_four">Desliza hasta abajo y pulsa el botón de continuar. Este proceso se repitirá un par de veces.</string>
+    <string name="title_capture_four_two">Desliza hasta abajo y pulsa el botón de continuar.</string>
+    <string name="title_capture_five">Pulse el botón.</string>
+    <string name="title_capture_six">Pulsa el botón de finalizar para acabar la sesión. Volverá a la página principal de la aplicación</string>
     <string name="click_capture">Pulsa en el recuadro</string>
     <string name="capture">Capturar</string>
     <string name="cont">Continuar</string>
-    <string name="start">Comenzar</string>
+    <string name="start">Comenzar acciones</string>
     <string name="add">Añadir</string>
     <string name="cancel">Cancelar</string>
+    <string name="send">Comprobar</string>
+    <string name="finish">Finalizar</string>
 
-    <string name="spain">ESP - España</string>
-    <string name="arg">ARG - Argentina</string>
-    <string name="mex">MEX - México</string>
-    <string name="others">OTROS - Otros</string>
 
-    <string name="id">Documento de identidad</string>
-    <string name="NIE">NIE</string>
-    <string name="pass">Pasaporte</string>
+    <string name="askOne">La Gioconda, obra realiza por Leonardo Da Vinci, también es conocida con el nombre de:</string>
+    <string name="responseOne_One">Mujer pensativa</string>
+    <string name="responseOne_OK">Mona Lisa</string>
+    <string name="responseOne_Three">La abstracción</string>
+    <string name="responseOne_Four">La belleza de la Mujer</string>
+
+    <string name="askTwo">¿Quién escribió "Peter Pan"?</string>
+    <string name="responseTwo_One"> Los hermanos Grimm</string>
+    <string name="responseTwo_Two">Lewis Carroll</string>
+    <string name="responseTwo_OK">James Matthew Barrie</string> -
+    <string name="responseTwo_Four">Robert Louis Stevenson</string>
+
+    <string name="askThree">¿Qué rey europeo dijo "El Estado soy yo"?</string>
+    <string name="responseThree_One">Carlos I de Inglaterra</string>
+    <string name="responseThree_Ok">Luis XIV de Francia</string>
+    <string name="responseThree_Three">Enrique VIII de Inglaterra</string>
+    <string name="responseThree_Four">Carlos I de España</string>
+
+    <string name="askFour">¿Cómo se denomina a un periodo de 5 años?</string>
+    <string name="responseFour_OkOne">Quinquenio</string>
+    <string name="responseFour_OkTwo">Lustro</string>
+
+    <string name="askFive">¿Qué artista pintó "El Diluvio Universal"?</string>
+    <string name="responseFive_One">Piero Della Francesca</string>
+    <string name="responseFive_Two">Rafael</string>
+    <string name="responseFive_Three">Botticelli</string>
+    <string name="responseFive_OK">Miguel Ángel</string>
+
+    <string name="askSix">La capital de Letonia es:</string>
+    <string name="responseSix_Ok">Riga</string>
+
+    <string name="askSeven">¿Qué artista pintó "Triunfo de Galatea"?</string>
+    <string name="responseSeven_One">Masaccio</string>
+    <string name="responseSeven_Two">Botticelli</string>
+    <string name="responseSeven_Ok">Rafael</string>
+    <string name="responseSeven_Four">Piero Della Francesca</string>
+
+    <string name="askEight">¿Dónde se encuentra el Museo del Prado?</string>
+    <string name="responseEight_Ok">Madrid</string>
+
+    <string name="askNine">¿Cómo era conocido Carlomagno quien fuera rey de los Francos desde 768 hasta su muerte?</string>
+    <string name="responseNine_One">Carlos I el Valiente</string>
+    <string name="responseNine_Two">Carlos I el Sabio</string>
+    <string name="responseNine_Three">Carlos I el Heroico</string>
+    <string name="responseNine_Ok">Carlos I el Grande</string>
+
+    <string name="askTen">¿A qué período pertenece Quevedo?</string>
+    <string name="responseTen_One"> Generación del 27</string>
+    <string name="responseTen_OK">Siglo de Oro</string>
+    <string name="responseTen_Three">Generación del 98</string>
+    <string name="responseTen_Four">Siglo de las Luces</string>
+
+    <string name="askEleven">El movimiento de traslación tarda un total de:</string>
+    <string name="responseEleven_One">365 días con 4 horas</string>
+    <string name="responseEleven_Ok">365 días con 6 horas</string>
+    <string name="responseEleven_Three">365 días con 5 horas</string>
+    <string name="responseEleven_Four">365 días con 7 horas</string>
+
+    <string name="askTwelve">El levantamiento del pueblo español contra Napoleón que invadía España tuvo lugar el:</string>
+    <string name="responseTwelve_OK">2 de Mayo de 1808</string>
+    <string name="responseTwelve_Two">3 de Mayo de 1808</string>
+    <string name="responseTwelve_Three">4 de Mayo de 1808</string>
+    <string name="responseTwelve_Four">5 de Mayo de 1808</string>
+
+    <string name="askThirteen">Miranda de Ebro pertenece a la provincia de:</string>
+    <string name="responseThirteen_Ok">Burgos</string>
+
+    <string name="askFourteen">¿Quién escribió "La Historia Interminable"?</string>
+    <string name="responseFourteen_One">Rudolf Steiner</string>
+    <string name="responseFourteen_Two">Otto Falckenberg</string>
+    <string name="responseFourteen_Three">Wiener Sängerknaben</string>
+    <string name="responseFourteen_Ok">Michael Ende</string>
+
+    <string name="askFifteen">El río más largo y caudaloso de Europa es:</string>
+    <string name="responseFifteen_Ok">Volga</string>
+
+    <string name="askSixteen">¿Cuál es el animal más grande del mundo?</string>
+    <string name="responseSixteen_One">El tiburón blanco</string>
+    <string name="responseSixteen_Two">La ballena blanca</string>
+    <string name="responseSixteen_Ok">La ballena azul</string>
+    <string name="responseSixteen_Four">El tiburón azul</string>
+
+    <string name="askSeventeen">¿Cuántos días tiene un año bisiesto?</string>
+    <string name="responseSeventeen_One">366</string>
+
+    <string name="askEighteen">¿De qué estilo arquitectónico es la Catedral de Toledo?</string>
+    <string name="responseEighteen_OK">Gótico</string>
+
+    <string name="askNighteen">La batalla del Ebro fue una batalla librada durante:</string>
+    <string name="responseNighteen_One">La Segunda Guerra Mundial</string>
+    <string name="responseNighteen_Two">La Primera Guerra Mundial</string>
+    <string name="responseNighteen_Three"> La Guerra de Corea</string>
+    <string name="responseNighteen_Ok">La Guerra Civil Española</string>
+
+    <string name="askTwenty">La capital de Andalucía es:</string>
+    <string name="responseTwenty_Ok">Sevilla</string>
+
+    <string name="askTwentyOne">¿Cuál es el felino más grande del mundo?</string>
+    <string name="responseTwentyOne_Ok">León</string>
+
+    <string name="askTwentyTwo">¿Dónde se encuentra "La creación de Adán" de Miguel Ángel?</string>
+    <string name="responseTwentyTwo_Ok">Capilla Sixtina</string>
+    <string name="responseTwentyTwo_Two">Museo del Prado</string>
+    <string name="responseTwentyTwo_Three">Museo Reina Sofía</string>
+    <string name="responseTwentyTwo_Four">Museo del Louvre</string>
+
+    <string name="askTwentyThree">¿Quién escribió "Don Quijote de la Mancha"?</string>
+    <string name="responseTwentyThree_One">Miguel Hernández</string>
+    <string name="responseTwentyThree_Two">Lope de Vega</string>
+    <string name="responseTwentyThree_Ok">Miguel de Cervantes</string>
+    <string name="responseTwentyThree_Four">María Vargas Llosa</string>
+
+    <string name="askTwentyFour">El gentilicio de la provincia de Ceuta es:</string>
+    <string name="responseTwentyFour_Ok">Ceutí</string>
+
+    <string name="askTwentyFive">¿Quién pintó "Paseo a orillas del mar"?</string>
+    <string name="responseTwentyFive_One">Eduardo Rosales</string>
+    <string name="responseTwentyFive_Two">Darío de Regoyos</string>
+    <string name="responseTwentyFive_Three">Mariano Fortuny</string>
+    <string name="responseTwentyFive_OK">Joaquín Sorolla</string>
+
+    <string name="askTwentySix">La temperatura a la cual la materia pasa de estado líquido a estado gaseoso se denomina:</string>
+    <string name="responseTwentySix_One">Transición de fase</string>
+    <string name="responseTwentySix_Ok">Punto de ebullición</string>
+    <string name="responseTwentySix_Three">Punto de fusión</string>
+    <string name="responseTwentySix_Four">Ecuación de estado</string>
+
+    <string name="askTwentySeven">¿Cómo se denomina a los objetos que dejan pasar la luz pero que no se puede ver a través de ellos?</string>
+    <string name="responseTwentySeven_Ok">Traslúcido</string>
+
+    <string name="askTwentyEight">¿Quién escribió "El cantar del Mío Cid"?</string>
+    <string name="responseTwentyEight_Ok">Anónimo</string>
+
+    <string name="askTwentyNine">La capital de Corea del Norte es:</string>
+    <string name="responseTwentyNine_OK">Pyongyang</string>
+
+    <string name="askThirty">¿Qué dos estilos artísticos surgieron en Europa durante la Edad Media?</string>
+    <string name="responseThirty_One">Bizantino y Romántico</string>
+    <string name="responseThirty_Two">Románico y Visigodo</string>
+    <string name="responseThirty_Ok">Románico y Gótico</string>
+    <string name="responseThirty_Four">Gótico y Visigodo</string>
+
+    <string name="lips">Labios</string>
+    <string name="tree">Árboles</string>
+    <string name="root">Raíces</string>
+
+    <string name="alligator">Cocodrilo</string>
+    <string name="boat">Barco</string>
+
+    <string name="chandelier">Candelabro</string>
+    <string name="profile">Dos perfiles</string>
+
+    <string name="explosion">Explosión</string>
+    <string name="partner">Pareja</string>
+
+    <string name="cliff">Acantilado</string>
+    <string name="cat">Gato</string>
+    <string name="face">Rostro</string>
+
+    <string name="results">Tus resultados:</string>
+
+    <string name="lips_solution">Siempre tomas las cosas como son y las juzgas por su verdadero valor. No intentas cambiar o descifrar las cosas que te rodean ni comprender su significado oculto.</string>
+    <string name="tree_solution">Eres una persona ambiciosa que siempre mira más allá que los demás. Además, eres súper perfeccionista y buscas lo mejor en cualquier situación.</string>
+    <string name="root_solution">Eres una persona extremadamente progresista que siempre intenta mejorar o cambiar una situación.</string>
+
+    <string name="alligator_solution">Puedes ser un poco descuidado y desatento a los detalles por naturaleza. Además, eres una persona práctica a la que no le gusta correr riesgos.</string>
+    <string name="boat_solution">Te gustan los matices y los detalles poco visibles. Prefieres destacar entre la multitud y ser una persona creativa y única. De todos modos, tratas de imaginarte el mundo como algo holístico y no pierdes el tiempo en detalles sin sentido.</string>
+
+    <string name="chandelier_solution">Eres quien prefiere retroceder un par de pasos para ver la imagen completa. Siempre recopilas información y estudias una situación a fondo antes de acercarte a un problema y comenzar a resolverlo.</string>
+    <string name="profile_solution">Te gusta mirar los detalles. Prefieres huir de los problemas cuando los encuentras cara a cara.</string>
+
+    <string name="explosion_solution">Eres tú quien se asusta con facilidad. Estás un poco distraído y no te gusta hacer cosas cuando no sabes cuál será el resultado. Ocasionalmente, incluso puedes tener conflictos contigo mismo.</string>
+    <string name="partner_solution">Te pones muy serio cuando se trata de relaciones. Piensas constantemente en tus seres queridos que ocupan la mayor parte de tu vida.</string>
+
+    <string name="cliff_solution">Eres una persona optimista que se adapta fácilmente a los cambios del entorno que te rodea. Eres capaz de encontrar puntos en común con la gente rápidamente y este hecho te hace odiar la soledad. Eres una persona apasionada con miles de nuevas ideas en tu cabeza.</string>
+    <string name="cat_solution">Eres una persona a la que le gusta la estabilidad. Percibes el equilibrio psicológico y emocional como sinónimos del desarrollo personal. Además de eso, eres una persona responsable que siempre cumple su palabra.</string>
+    <string name="face_solution">Eres una persona extremadamente creativa que ve el mundo como un lugar lleno de nuevas aperturas y logros. La intuición, la sabiduría, la felicidad y la satisfacción de tu incansable curiosidad son las cosas más importantes en la vida para ti. Tienes un gusto perfecto y una percepción sensible del arte, la poesía, la música y la literatura.</string>
 </resources>

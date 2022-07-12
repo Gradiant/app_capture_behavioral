@@ -1,7 +1,7 @@
 package com.example.capturebehavioural.framework
 import android.net.Uri
 import com.example.data.OnFirebase
-import com.example.domain.Audio
+import com.example.domain.Data
 import com.example.domain.Consents
 import com.example.domain.Response
 import com.example.domain.User
@@ -25,11 +25,11 @@ class FirebaseDatabase: OnFirebase {
     private val database = Firebase.database(("https://capturebehavioural-c2904-default-rtdb.europe-west1.firebasedatabase.app"))
     val myRef = database.getReference("users")
 
-    override fun saveAudio(audio: Audio): Flow<Response<Any>> = callbackFlow {
+    override fun saveAudio(data: Data): Flow<Response<Any>> = callbackFlow {
         val storage = Firebase.storage
-        val storageRef = storage.reference.child( "capturebehavioural/${audio.sesion}/${audio.nameAudio}.wav")
+        val storageRef = storage.reference.child( "capturebehavioural/${data.sesion}/prueba.csv")
 
-        val uploadTask = storageRef.putFile(Uri.fromFile(File(audio.audioPath)))
+        val uploadTask = storageRef.putFile(Uri.fromFile(File(data.dataPath)))
         uploadTask.addOnSuccessListener {
             trySendBlocking(Response.Success("ok"))
         }

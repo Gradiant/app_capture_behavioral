@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="listCountry">
-        <item>@string/spain</item>
-        <item>@string/arg</item>
-        <item>@string/mex</item>
-        <item>@string/others</item>
+    <string-array name="listOne">
+        <item>@string/tree</item>
+        <item>@string/lips</item>
+        <item>@string/root</item>
     </string-array>
 
-    <string-array name="listDoc">
-        <item>@string/id</item>
-        <item>@string/NIE</item>
-        <item>@string/pass</item>
+    <string-array name="listTwo">
+        <item>@string/boat</item>
+        <item>@string/alligator</item>
+    </string-array>
+
+    <string-array name="listThree">
+        <item>@string/profile</item>
+        <item>@string/chandelier</item>
+    </string-array>
+
+    <string-array name="listFour">
+        <item>@string/cliff</item>
+        <item>@string/cat</item>
+        <item>@string/face</item>
+    </string-array>
+
+    <string-array name="listFive">
+        <item>@string/explosion</item>
+        <item>@string/partner</item>
     </string-array>
 
     <string-array name="listSesion">

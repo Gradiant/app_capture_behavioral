@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/clForm"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:paddingBottom="@dimen/margin_5"
+    android:layout_marginTop="@dimen/margin_15"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvAsk"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        android:textSize="16sp"
+        android:text="@string/askOne"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+    </TextView>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etResponse"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        app:layout_constraintTop_toBottomOf="@id/tvAsk">
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btSend"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        android:text="@string/send"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintEnd_toEndOf="@id/etResponse"
+        app:layout_constraintTop_toBottomOf="@id/etResponse">
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btResponseOne"
+        android:visibility="gone"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        app:layout_constraintTop_toBottomOf="@id/tvAsk">
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btResponseTwo"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        android:visibility="gone"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintTop_toBottomOf="@id/btResponseOne">
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btResponseThree"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/btResponseTwo"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btResponseFour"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_32"
+        android:layout_marginEnd="@dimen/margin_32"
+        android:padding="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_5"
+        android:visibility="gone"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintTop_toBottomOf="@id/btResponseThree">
+    </androidx.appcompat.widget.AppCompatButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

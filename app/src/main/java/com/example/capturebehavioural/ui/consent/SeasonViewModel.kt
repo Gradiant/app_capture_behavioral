@@ -25,4 +25,9 @@ class SeasonViewModel : ViewModel() {
     }
 
     class MainViewModelFactory: ViewModelProvider.NewInstanceFactory()
+
+
+    fun onResume() {
+        _seasonState.value = null
+    }
 }
