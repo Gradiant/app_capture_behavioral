@@ -1,6 +1,7 @@
 package com.example.capturebehavioural.ui.consent
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.capturebehavioural.databinding.SeasonFragmentBinding
+import com.example.capturebehavioural.ui.capture.CaptureActivity
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -30,7 +32,6 @@ class SeasonFragment : Fragment() {
         binding = SeasonFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,11 +56,17 @@ class SeasonFragment : Fragment() {
         }
     }
 
+
     private fun updateUI(screenState: SeasonState?) {
         when (screenState) {
             is SeasonState.NewSeason -> {
-                val action = SeasonFragmentDirections.actionSeasonFragmentToCaptureActivity()
-                view?.findNavController()?.navigate(action)
+
+                //val action = SeasonFragmentDirections.actionSeasonFragmentToCaptureActivity()
+                //view?.findNavController()?.navigate(action)
+                val intent = Intent(this.activity, CaptureActivity::class.java)
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP)
+                startActivity(intent)
             }
             is SeasonState.NewUser -> {
                 val action = SeasonFragmentDirections.actionSeasonFragmentToRequestFragment()
@@ -67,4 +74,11 @@ class SeasonFragment : Fragment() {
             }
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.onResume()
+    }
+
+
 }

@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -45,6 +51,9 @@
                 android:id="@+id/btStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:backgroundTint="@color/green"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
@@ -52,26 +61,123 @@
                 android:text="@string/start">
             </Button>
 
+            <TextView
+                android:id="@+id/tvResultOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvResultTwo"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                app:layout_constraintTop_toBottomOf="@id/tvResultOne"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvResultThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_20"
+                app:layout_constraintTop_toBottomOf="@id/tvResultTwo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvResultFour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_20"
+                app:layout_constraintTop_toBottomOf="@id/tvResultThree"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvResultFive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_20"
+                app:layout_constraintTop_toBottomOf="@id/tvResultFour"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            </TextView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btOkResults"
+                android:text="@string/cont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_20"
+                android:backgroundTint="@color/green"
+                app:layout_constraintTop_toBottomOf="@id/tvResultFive"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clDoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_20"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivLips"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="260dp"
+                    android:layout_height="250dp"
+                    android:src="@mipmap/labios">
+
+                </androidx.appcompat.widget.AppCompatImageView>
 
                 <Spinner
                     android:id="@+id/spinnerOne"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:layout_margin="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:layout_marginStart="@dimen/margin_32"
                     android:padding="@dimen/margin_10"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/ivLips"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:focusableInTouchMode="true"
-                    android:entries="@array/listCountry">
+                    android:entries="@array/listOne">
                 </Spinner>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAlligator"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerOne"
+                    android:layout_width="260dp"
+                    android:layout_marginTop="@dimen/margin_32"
+                    android:layout_height="250dp"
+                    android:src="@mipmap/cocodrilo">
+
+                </androidx.appcompat.widget.AppCompatImageView>
 
                 <Spinner
                     android:id="@+id/spinnerTwo"
@@ -81,27 +187,116 @@
                     android:layout_marginStart="@dimen/margin_32"
                     android:layout_marginEnd="@dimen/margin_32"
                     android:padding="@dimen/margin_10"
-                    app:layout_constraintTop_toBottomOf="@id/spinnerOne"
+                    app:layout_constraintTop_toBottomOf="@id/ivAlligator"
                     android:focusableInTouchMode="true"
-                    android:entries="@array/listDoc">
+                    android:entries="@array/listTwo">
+                </Spinner>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPersons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerTwo"
+                    android:layout_width="260dp"
+                    android:layout_marginTop="@dimen/margin_32"
+                    android:layout_height="250dp"
+                    android:src="@mipmap/personas">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <Spinner
+                    android:id="@+id/spinnerThree"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:padding="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/ivPersons"
+                    android:focusableInTouchMode="true"
+                    android:entries="@array/listThree">
+                </Spinner>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivNatur"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerThree"
+                    android:layout_width="280dp"
+                    android:layout_marginTop="@dimen/margin_32"
+                    android:layout_height="250dp"
+                    android:src="@mipmap/mujerpaisaje">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <Spinner
+                    android:id="@+id/spinnerFour"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:padding="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/ivNatur"
+                    android:focusableInTouchMode="true"
+                    android:entries="@array/listFour">
+                </Spinner>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPartner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerFour"
+                    android:layout_width="260dp"
+                    android:layout_marginTop="@dimen/margin_32"
+                    android:layout_height="250dp"
+                    android:src="@mipmap/pareja">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+                <Spinner
+                    android:id="@+id/spinnerFive"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:padding="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/ivPartner"
+                    android:focusableInTouchMode="true"
+                    android:entries="@array/listFive">
                 </Spinner>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbAccept"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_32"
-                    android:padding="@dimen/margin_10"
-                    android:text="Acepto"
-                    app:layout_constraintTop_toBottomOf="@id/spinnerTwo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    android:padding="@dimen/margin_5"
+                    android:text="Confirmo"
+                    app:layout_constraintTop_toBottomOf="@id/spinnerFive"
+                    app:layout_constraintStart_toStartOf="parent">
                 </androidx.appcompat.widget.AppCompatCheckBox>
 
+                <TextView
+                    android:id="@+id/tvInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/cbAccept"
+                    app:layout_constraintBottom_toBottomOf="@id/cbAccept"
+                    app:layout_constraintStart_toEndOf="@id/cbAccept"
+                    android:textColor="@color/black"
+                    android:text="@string/this_info">
+
+                </TextView>
+
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/tbNext"
+                    android:id="@+id/btNext"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:background="@drawable/selector_button"
+                    android:enabled="false"
                     app:layout_constraintTop_toBottomOf="@id/cbAccept"
                     android:layout_margin="@dimen/margin_32"
                     android:text="@string/cont">
@@ -121,9 +316,9 @@
 
                 <ImageView
                     android:id="@+id/iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_mic"
+                    android:layout_width="300dp"
+                    android:layout_height="350dp"
+                    android:background="@drawable/ic_arrow"
                     android:layout_marginBottom="@dimen/margin_32"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -135,7 +330,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/capture"
-                    android:layout_margin="@dimen/margin_32"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/green"
+                    android:layout_marginStart="@dimen/margin_32"
+                    android:layout_marginEnd="@dimen/margin_32"
+                    android:layout_marginTop="@dimen/margin_1000"
                     app:layout_constraintTop_toBottomOf="@id/iv"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
@@ -148,15 +347,59 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:text="Pulsar"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/green"
                 android:visibility="gone"
                 android:layout_margin="@dimen/margin_32"
                 app:layout_constraintTop_toBottomOf="@id/title">
 
             </androidx.appcompat.widget.AppCompatButton>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvForm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:visibility="visible"
+                android:focusableInTouchMode="true"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.328"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/list_item" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cont"
+                android:textColor="@color/white"
+                android:background="@drawable/selector_button"
+                android:layout_margin="@dimen/margin_32"
+                android:enabled="false"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/rvForm">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFinish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/finish"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/green"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/margin_32"
+                android:layout_marginStart="@dimen/margin_32"
+                android:layout_marginTop="@dimen/margin_40"
+                app:layout_constraintTop_toBottomOf="@id/title">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
