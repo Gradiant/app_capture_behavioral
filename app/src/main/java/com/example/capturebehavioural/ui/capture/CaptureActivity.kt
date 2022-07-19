@@ -1,89 +1,253 @@
 package com.example.capturebehavioural.ui.capture
 
-import android.app.AlertDialog
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.Settings
-import android.util.Log
 import android.view.GestureDetector
+import android.view.KeyEvent
 import android.view.MotionEvent
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.capturebehavioural.R
+import java.io.File
+import java.io.FileWriter
 
-class CaptureActivity : FragmentActivity() {
+class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
 
     companion object {
         private const val APP_STORAGE_ACCESS_REQUEST_CODE = 501
-        private const val DEBUG_TAG = "Gestures"
     }
 
+    private val touchFile: File = File.createTempFile("TouchEvent", "csv")
+    private var fileWriterTouch: FileWriter = FileWriter(touchFile)
+
+    private val scrollFile: File = File.createTempFile("ScrollEvent", "csv")
+    private var fileWriterScroll: FileWriter = FileWriter(scrollFile)
+
+    private val keyFile: File = File.createTempFile("KeyEvent", "csv")
+    var fileWriterKey: FileWriter = FileWriter(keyFile)
+
+    private lateinit var viewModel: CaptureViewModel
+
     private lateinit var mDetector: GestureDetectorCompat
+
+    private lateinit var email: String
+    private lateinit var season: String
+    private lateinit var position: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture)
-        mDetector = GestureDetectorCompat(this, MyGestureListener())
+
+        viewModel = ViewModelProvider(this,
+            CaptureViewModel.MainViewModelFactory()
+        )[CaptureViewModel::class.java]
+
+        email = this.intent?.getStringExtra("email") ?: ""
+        season = this.intent?.getStringExtra("season") ?: ""
+        position = this.intent?.getStringExtra("position") ?: "0"
+
+        mDetector = GestureDetectorCompat(this, this)
     }
 
+    override fun onPause() {
+        fileWriterScroll.close()
+        fileWriterTouch.close()
+        fileWriterKey.close()
+        viewModel.saveValues(email, season, "ScrollEvent", scrollFile)
+        viewModel.saveValues(email, season, "TouchEvent", touchFile)
+        viewModel.saveValues(email, season, "KeyEvent", keyFile)
 
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        mDetector.onTouchEvent(ev)
-        return super.dispatchTouchEvent(ev)
+        super.onPause()
+
     }
 
-    private fun requestPermissionManageAllFiles() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R ||
-            Environment.isExternalStorageManager()) {
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        mDetector.onTouchEvent(event)
+        return super.dispatchTouchEvent(event) // so that viewPager and other views also get the event
+    }
 
-        } else {
-            val builder = AlertDialog.Builder(this@CaptureActivity)
-                .setMessage(resources.getString(R.string.permissions))
-                .setPositiveButton("OK") {
-                        _, _ ->
-                    val intent = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
-                    startActivityForResult(intent, APP_STORAGE_ACCESS_REQUEST_CODE)
-                }.setCancelable(false)
+    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        return if (event.action == KeyEvent.ACTION_DOWN) {
+            try {
+                fileWriterKey.append(System.currentTimeMillis().toString())
+                fileWriterKey.append(',')
+                fileWriterKey.append(event.eventTime.toString())
+                fileWriterKey.append(',')
+                fileWriterKey.append("0")
+                fileWriterKey.append(',')
+                fileWriterKey.append(event.keyCode.toString())
+                fileWriterKey.append(',')
+                fileWriterKey.append(position)
+                fileWriterKey.append(',')
 
-            val alert = builder.create()
-            alert.setCancelable(false)
-            alert.setCanceledOnTouchOutside(false)
-            alert.show()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    this@CaptureActivity.display?.let {
+                        fileWriterScroll.append(it.rotation.toString())
+                    }
+                } else {
+                    @Suppress("DEPRECATION")
+                    this@CaptureActivity.windowManager?.defaultDisplay?.let {
+                        fileWriterKey.append(it.rotation.toString())
+                    }
+                }
+                fileWriterKey.append('\n')
+
+                println("Write CSV successfully!")
+            } catch (e: Exception) {
+                println("Writing CSV error!")
+                e.printStackTrace()
+            }
+            true
+        } else if (event.action == KeyEvent.ACTION_UP) {
+
+            try {
+                fileWriterKey.append(System.currentTimeMillis().toString())
+                fileWriterKey.append(',')
+                fileWriterKey.append(event.eventTime.toString())
+                fileWriterKey.append(',')
+                fileWriterKey.append("1")
+                fileWriterKey.append(',')
+                fileWriterKey.append(event.keyCode.toString())
+                fileWriterKey.append(',')
+                fileWriterKey.append(position)
+                fileWriterKey.append(',')
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    this@CaptureActivity.display?.let {
+                        fileWriterScroll.append(it.rotation.toString())
+                    }
+                } else {
+                    @Suppress("DEPRECATION")
+                    this@CaptureActivity.windowManager?.defaultDisplay?.let {
+                        fileWriterKey.append(it.rotation.toString())
+                    }
+                }
+                fileWriterKey.append('\n')
+
+                println("Write CSV successfully!")
+            } catch (e: Exception) {
+                println("Writing CSV error!")
+                e.printStackTrace()
+            }
+            true
+        } else
+            false
+    }
+
+    override fun onDown(event: MotionEvent?): Boolean {
+        try {
+            event?.let { e1 ->
+                fileWriterTouch.append(System.currentTimeMillis().toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.eventTime.toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.pointerCount.toString())
+               /* fileWriterScroll.append(',')
+                fileWriterScroll.append(e1.getPointerId().toString())*/
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.action.toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.x.toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.y.toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.pressure.toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(e1.size.toString())
+                fileWriterTouch.append(',')
+                fileWriterTouch.append(position)
+                fileWriterTouch.append(',')
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    this@CaptureActivity.display?.let {
+                        fileWriterTouch.append(it.rotation.toString())
+                    }
+                } else {
+                    @Suppress("DEPRECATION")
+                    this@CaptureActivity.windowManager?.defaultDisplay?.let {
+                        fileWriterTouch.append(it.rotation.toString())
+                    }
+                }
+                fileWriterTouch.append('\n')
+
+                println("Write CSV successfully!")
+            }
+        } catch (e: Exception) {
+            println("Writing CSV error!")
+            e.printStackTrace()
         }
+        return true
     }
 
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode != RESULT_OK && requestCode == APP_STORAGE_ACCESS_REQUEST_CODE) {
-            requestPermissionManageAllFiles()
-        }
+    override fun onShowPress(p0: MotionEvent?) {
     }
 
-
-    private class MyGestureListener : GestureDetector.SimpleOnGestureListener() {
-
-        override fun onScroll(
-            e1: MotionEvent?,
-            e2: MotionEvent?,
-            distanceX: Float,
-            distanceY: Float
-        ): Boolean {
-            Log.d(DEBUG_TAG, "onScroll: $e1 $e2")
-            return true
-        }
-
-        override fun onFling(
-            event1: MotionEvent,
-            event2: MotionEvent,
-            velocityX: Float,
-            velocityY: Float
-        ): Boolean {
-            Log.d(DEBUG_TAG, "onFling: $event1 $event2")
-            return true
-        }
+    override fun onSingleTapUp(p0: MotionEvent?): Boolean {
+        return true
     }
+
+    override fun onScroll(event1: MotionEvent?, event2: MotionEvent?, p2: Float, p3: Float): Boolean {
+        try {
+            event1?.let { e1 ->
+                event2?.let { e2 ->
+                    fileWriterScroll.append(System.currentTimeMillis().toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e1.eventTime.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e2.eventTime.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append("0")
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e1.x.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e1.y.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e1.pressure.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e1.size.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append("2")
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e2.x.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e2.y.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e2.pressure.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(e2.size.toString())
+                    fileWriterScroll.append(',')
+                    fileWriterScroll.append(position)
+                    fileWriterScroll.append(',')
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        this@CaptureActivity.display?.let {
+                            fileWriterScroll.append(it.rotation.toString())
+                        }
+                    } else {
+                        @Suppress("DEPRECATION")
+                        this@CaptureActivity.windowManager?.defaultDisplay?.let {
+                            fileWriterScroll.append(it.rotation.toString())
+                        }
+                    }
+                    fileWriterScroll.append('\n')
+
+                    println("Write CSV successfully!")
+                }
+            }
+        } catch (e: Exception) {
+            println("Writing CSV error!")
+            e.printStackTrace()
+        }
+        return true
+    }
+
+    override fun onLongPress(p0: MotionEvent?) {
+    }
+
+    override fun onFling(p0: MotionEvent?, p1: MotionEvent?, p2: Float, p3: Float): Boolean {
+        return true
+    }
+
 }
 

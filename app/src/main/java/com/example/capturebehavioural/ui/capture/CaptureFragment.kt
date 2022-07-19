@@ -1,6 +1,5 @@
 package com.example.capturebehavioural.ui.capture
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
@@ -10,10 +9,6 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -23,21 +18,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capturebehavioural.R
 import com.example.capturebehavioural.databinding.CaptureFragmentBinding
-import com.example.capturebehavioural.others.Utilities
 import com.example.domain.ListItem
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import pub.devrel.easypermissions.AppSettingsDialog
-import pub.devrel.easypermissions.EasyPermissions
+import java.io.File
+import java.io.FileWriter
+import android.view.*
 
 @ExperimentalCoroutinesApi
-class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.PermissionCallbacks, ItemArrayAdapter.ListItemClickListener {
+class CaptureFragment: Fragment(), SensorEventListener, ItemArrayAdapter.ListItemClickListener {
 
     private lateinit var sensorManager: SensorManager
     private var linearAcelSensor: Sensor? = null
     private var acelSensor: Sensor? = null
     private var gyrosSensor: Sensor? = null
+    private var magSensor: Sensor? = null
 
     private var dialog: AlertDialog? = null
 
@@ -46,6 +42,23 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
 
     private lateinit var binding: CaptureFragmentBinding
     private lateinit var viewModel: CaptureViewModel
+
+    private lateinit var email: String
+    private lateinit var season: String
+    private lateinit var position: String
+
+    private val accFile: File = File.createTempFile("Accelerometer", "csv")
+    private var fileWriterAc: FileWriter = FileWriter(accFile)
+
+    private val linearAccFile: File = File.createTempFile("LinearAccelerometer", "csv")
+    var fileWriterLinearAc: FileWriter = FileWriter(linearAccFile)
+
+    private val gyrosFile: File = File.createTempFile("Gyroscrope", "csv")
+    var fileWriterGyros: FileWriter = FileWriter(gyrosFile)
+
+    private val magFile: File = File.createTempFile("Magnetometer", "csv")
+    var fileWriterMag: FileWriter = FileWriter(magFile)
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,14 +75,16 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
             CaptureViewModel.MainViewModelFactory()
         )[CaptureViewModel::class.java]
 
+        email = activity?.intent?.getStringExtra("email") ?: ""
+        season = activity?.intent?.getStringExtra("season") ?: ""
+        position = activity?.intent?.getStringExtra("position") ?: "0"
+
         sensorManager = context?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
         viewModel.captureState
             .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
             .onEach { state -> updateUI(state) }
             .launchIn(lifecycleScope)
-
-        requestPermissions()
 
         binding.btStart.setOnClickListener {
             viewModel.clickStart()
@@ -106,11 +121,6 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
         binding.btCont.setOnClickListener {
             viewModel.clickCont()
         }
-        /* val deviceSensors: List<Sensor> = sensorManager.getSensorList(Sensor.TYPE_ALL)
-
-         for (sensors in deviceSensors) {
-             binding.tv.append(sensors.toString() + "\n\n")
-         }*/
 
         binding.rvForm.isNestedScrollingEnabled = false
 
@@ -177,46 +187,7 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
         linearAcelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
         acelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         gyrosSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
-/*
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null) {
-            // Success! There's a magnetometer.
-        } else {
-            // Failure! No magnetometer.
-        }*/
-    }
-
-    private fun requestPermissions() {
-        if(!Utilities.hasLocationPermissions(context!!)) {
-            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-                EasyPermissions.requestPermissions(
-                    this,
-                    "Necesitas permisos para acceder a los archivos",
-                    0,
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-            } else {
-                EasyPermissions.requestPermissions(
-                    this,
-                    "Necesitas permisos para acceder a los archivos",
-                    0,
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-            }
-        }
-    }
-
-    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if(EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            AppSettingsDialog.Builder(this).build().show()
-        } else {
-            requestPermissions()
-        }
-    }
-
-    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
-        //do nothing
+        magSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
     }
 
     private fun updateUI(state: CaptureState?) {
@@ -324,6 +295,15 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
                 binding.btFinish.visibility = View.VISIBLE
             }
             is CaptureState.Navigation -> {
+                fileWriterAc.close()
+                fileWriterGyros.close()
+                fileWriterLinearAc.close()
+                viewModel.saveValues(email, season, "Accelerometer", accFile)
+                viewModel.saveValues(email, season, "LinearAccelerometer", linearAccFile)
+                viewModel.saveValues(email, season, "Gyroscrope", gyrosFile)
+                viewModel.saveValues(email, season, "Magnetometer", magFile)
+
+
                 activity?.finish()
             }
             else ->  {
@@ -333,10 +313,143 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        //TODO: hacer un when para distinguir el tipo de evento
         event?.let { e ->
-            val lux = e.values[0]
-            Log.d("SENSOR_VALUE", lux.toString())
+            when(e.sensor.type) {
+                TYPE_LINEAR_ACCELERATION -> {
+                    try {
+                        fileWriterLinearAc.append(System.currentTimeMillis().toString())
+                        fileWriterLinearAc.append(',')
+                        fileWriterLinearAc.append(e.timestamp.toString())
+                        fileWriterLinearAc.append(',')
+                        fileWriterLinearAc.append(e.values[0].toString())
+                        fileWriterLinearAc.append(',')
+                        fileWriterLinearAc.append(e.values[1].toString())
+                        fileWriterLinearAc.append(',')
+                        fileWriterLinearAc.append(e.values[2].toString())
+                        fileWriterLinearAc.append(',')
+                        fileWriterLinearAc.append(position)
+                        fileWriterLinearAc.append(',')
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            activity?.display?.let {
+                                fileWriterLinearAc.append(it.rotation.toString())
+                            }
+                        } else {
+                            @Suppress("DEPRECATION")
+                            activity?.windowManager?.defaultDisplay?.let {
+                                fileWriterLinearAc.append(it.rotation.toString())
+                            }
+                        }
+                        fileWriterLinearAc.append('\n')
+
+                        println("Write CSV successfully!")
+
+                    } catch (e: Exception) {
+                        println("Writing CSV error!")
+                        e.printStackTrace()
+                    }
+                }
+                TYPE_ACCELEROMETER -> {
+                    try {
+                        fileWriterAc.append(System.currentTimeMillis().toString())
+                        fileWriterAc.append(',')
+                        fileWriterAc.append(e.timestamp.toString())
+                        fileWriterAc.append(',')
+                        fileWriterAc.append(e.values[0].toString())
+                        fileWriterAc.append(',')
+                        fileWriterAc.append(e.values[1].toString())
+                        fileWriterAc.append(',')
+                        fileWriterAc.append(e.values[2].toString())
+                        fileWriterAc.append(',')
+                        fileWriterAc.append(position)
+                        fileWriterAc.append(',')
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            activity?.display?.let {
+                                fileWriterAc.append(it.rotation.toString())
+                            }
+                        } else {
+                            @Suppress("DEPRECATION")
+                            activity?.windowManager?.defaultDisplay?.let {
+                                fileWriterAc.append(it.rotation.toString())
+                            }
+                        }
+                        fileWriterAc.append('\n')
+
+                        println("Write CSV successfully!")
+
+                    } catch (e: Exception) {
+                        println("Writing CSV error!")
+                        e.printStackTrace()
+                    }                }
+                TYPE_GYROSCOPE -> {
+                    try {
+                        fileWriterGyros.append(System.currentTimeMillis().toString())
+                        fileWriterGyros.append(',')
+                        fileWriterGyros.append(e.timestamp.toString())
+                        fileWriterGyros.append(',')
+                        fileWriterGyros.append(e.values[0].toString())
+                        fileWriterGyros.append(',')
+                        fileWriterGyros.append(e.values[1].toString())
+                        fileWriterGyros.append(',')
+                        fileWriterGyros.append(e.values[2].toString())
+                        fileWriterGyros.append(',')
+                        fileWriterGyros.append(position)
+                        fileWriterGyros.append(',')
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            activity?.display?.let {
+                                fileWriterGyros.append(it.rotation.toString())
+                            }
+                        } else {
+                            @Suppress("DEPRECATION")
+                            activity?.windowManager?.defaultDisplay?.let {
+                                fileWriterGyros.append(it.rotation.toString())
+                            }
+                        }
+                        fileWriterGyros.append('\n')
+
+                        println("Write CSV successfully!")
+
+                    } catch (e: Exception) {
+                        println("Writing CSV error!")
+                        e.printStackTrace()
+                    }
+                }
+                TYPE_MAGNETIC_FIELD -> {
+                    try {
+                        fileWriterMag.append(System.currentTimeMillis().toString())
+                        fileWriterMag.append(',')
+                        fileWriterMag.append(e.timestamp.toString())
+                        fileWriterMag.append(',')
+                        fileWriterMag.append(e.values[0].toString())
+                        fileWriterMag.append(',')
+                        fileWriterMag.append(e.values[1].toString())
+                        fileWriterMag.append(',')
+                        fileWriterMag.append(e.values[2].toString())
+                        fileWriterMag.append(',')
+                        fileWriterMag.append(position)
+                        fileWriterMag.append(',')
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            activity?.display?.let {
+                                fileWriterMag.append(it.rotation.toString())
+                            }
+                        } else {
+                            @Suppress("DEPRECATION")
+                            activity?.windowManager?.defaultDisplay?.let {
+                                fileWriterMag.append(it.rotation.toString())
+                            }
+                        }
+                        fileWriterMag.append('\n')
+
+                        println("Write CSV successfully!")
+
+                    } catch (e: Exception) {
+                        println("Writing CSV error!")
+                        e.printStackTrace()
+                    }
+                }
+                else -> {
+                    //do nothing
+                }
+            }
         }
     }
 
@@ -347,14 +460,17 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
 
     override fun onResume() {
         super.onResume()
-        linearAcelSensor?.also { light ->
-            sensorManager.registerListener(this, light, SensorManager.SENSOR_DELAY_NORMAL)
+        linearAcelSensor?.also { linearAc ->
+            sensorManager.registerListener(this, linearAc, SensorManager.SENSOR_DELAY_NORMAL)
         }
-        acelSensor?.also { light ->
-            sensorManager.registerListener(this, light, SensorManager.SENSOR_DELAY_NORMAL)
+        acelSensor?.also { acel ->
+            sensorManager.registerListener(this, acel, SensorManager.SENSOR_DELAY_NORMAL)
         }
-        gyrosSensor?.also { light ->
-            sensorManager.registerListener(this, light, SensorManager.SENSOR_DELAY_NORMAL)
+        gyrosSensor?.also { gyros ->
+            sensorManager.registerListener(this, gyros, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+        magSensor?.also { mag ->
+            sensorManager.registerListener(this, mag, SensorManager.SENSOR_DELAY_NORMAL)
         }
     }
 
@@ -367,4 +483,10 @@ class CaptureFragment: Fragment(), SensorEventListener, EasyPermissions.Permissi
         binding.btCont.isEnabled = (iteration >= 30)
     }
 
+    companion object {
+        const val TYPE_LINEAR_ACCELERATION = 10
+        const val TYPE_ACCELEROMETER = 1
+        const val TYPE_GYROSCOPE = 4
+        const val TYPE_MAGNETIC_FIELD = 2
+    }
 }

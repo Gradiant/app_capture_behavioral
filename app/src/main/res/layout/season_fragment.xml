@@ -30,6 +30,32 @@
         app:layout_constraintTop_toBottomOf="@id/title" />
 
     <TextView
+        android:id="@+id/textPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/position"
+        android:textColor="@color/black"
+        android:focusableInTouchMode="true"
+        app:layout_constraintLeft_toLeftOf="@id/description"
+        app:layout_constraintTop_toBottomOf="@id/description"/>
+
+    <Spinner
+        android:id="@+id/spinnerPosition"
+        android:layout_height="wrap_content"
+        android:prompt="@string/position"
+        android:layout_width="wrap_content"
+        android:clickable="true"
+        android:layout_marginStart="@dimen/margin_20"
+        android:focusableInTouchMode="true"
+        app:layout_constraintStart_toEndOf="@id/textPosition"
+        app:layout_constraintTop_toTopOf="@id/textPosition"
+        app:layout_constraintBottom_toBottomOf="@id/textPosition"
+        android:entries="@array/listPosition">
+    </Spinner>
+
+    <TextView
         android:id="@+id/textSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +65,7 @@
         android:textColor="@color/black"
         android:focusableInTouchMode="true"
         app:layout_constraintLeft_toLeftOf="@id/description"
-        app:layout_constraintTop_toBottomOf="@id/description"/>
+        app:layout_constraintTop_toBottomOf="@id/textPosition"/>
 
     <Spinner
         android:id="@+id/spinnerSesion"
@@ -51,7 +77,6 @@
         android:focusableInTouchMode="true"
         app:layout_constraintStart_toEndOf="@id/textSesion"
         app:layout_constraintTop_toTopOf="@id/textSesion"
-        app:layout_constraintBottom_toBottomOf="@id/textSesion"
         android:entries="@array/listSesion">
     </Spinner>
 
