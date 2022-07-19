@@ -25,9 +25,9 @@ class FirebaseDatabase: OnFirebase {
     private val database = Firebase.database(("https://capturebehavioural-c2904-default-rtdb.europe-west1.firebasedatabase.app"))
     val myRef = database.getReference("users")
 
-    override fun saveAudio(data: Data): Flow<Response<Any>> = callbackFlow {
+    override fun saveData(data: Data): Flow<Response<Any>> = callbackFlow {
         val storage = Firebase.storage
-        val storageRef = storage.reference.child( "capturebehavioural/${data.sesion}/prueba.csv")
+        val storageRef = storage.reference.child( "capturebehavioural/${data.user}/${data.season}/${data.sensor}.csv")
 
         val uploadTask = storageRef.putFile(Uri.fromFile(File(data.dataPath)))
         uploadTask.addOnSuccessListener {

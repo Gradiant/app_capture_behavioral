@@ -28,7 +28,7 @@ class ConsentFragment: Fragment() {
     private lateinit var viewModel: ConsentViewModel
     private var consent = 0
 
-    private var email = ""
+    private lateinit var email: String
     private val args: ConsentFragmentArgs by navArgs()
 
     override fun onCreateView(

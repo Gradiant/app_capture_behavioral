@@ -60,39 +60,43 @@ Las medidas organizativas y de seguridad y los esquemas de protección de datos 
 
     <!-- Pantalla de sesión -->
     <string name="season_title">Captura de datos</string>
-    <string name="new_sesion">Si quieres empezar una nueva sesión, seleccione el número.</string>
-    <string name="verification">¿Estás seguro de querer guardar este audio? Si el archivo ya existe se sobreescribirá</string>
-    <string name="permissions">"Necesita dar permisos para acceder a los archivos"</string>
-    <string name="text_sesion">Sesion:</string>
+    <string name="new_sesion">Si quieres empezar una nueva sesión, seleccione el número de sesión y la posición en la que se encuentra.</string>
+    <string name="text_sesion">Sesión:</string>
 
     <string name="sesion">Sesion</string>
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="ten">10</string>
 
+    <string name="position">Posición:</string>
+    <string name="sit">Sentado</string>
+    <string name="up">De pie</string>
 
     <!-- Dialogo politica -->
     <string name="this_info"><u>esta información</u></string>
-    <string name="title_politics">Título 1</string>
-    <string name="subtitle_politics">Lorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.
+    <string name="title_politics">Descripción</string>
+    <string name="subtitle_politics">\nLa finalidad de esta aplicación es recoger datos del comportamiento del usuario en el dispositivo móvil, como la presión con la que pulsa los botones. Por ello, todas las respuestas seleccionadas no se guardan en ningún lado. Son totalmente anónimas, simplemente sirven como ejemplo para utilizar botones o desplazarse por diferentes pantallas. \n\nLorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.
+        El resto de este ejemplo es aleatorio. Solo sirve para obligar al usuario a navegar hasta abajo. \n\n
 
-Per dignissim natoque hendrerit tempus tellus ultricies dapibus luctus congue vulputate porttitor fames risus dis varius, cubilia a tincidunt integer egestas nec quam placerat vitae ligula suspendisse in nam. Libero nascetur cursus volutpat scelerisque porta mollis, sapien viverra sollicitudin potenti etiam donec, aliquam semper cum accumsan sagittis. Praesent mus rutrum sociis proin ligula fames magna, semper fermentum quisque porttitor diam laoreet massa fusce, sapien litora in elementum lacinia est.
+        Per dignissim natoque hendrerit tempus tellus ultricies dapibus luctus congue vulputate porttitor fames risus dis varius, cubilia a tincidunt integer egestas nec quam placerat vitae ligula suspendisse in nam. Libero nascetur cursus volutpat scelerisque porta mollis, sapien viverra sollicitudin potenti etiam donec, aliquam semper cum accumsan sagittis. Praesent mus rutrum sociis proin ligula fames magna, semper fermentum quisque porttitor diam laoreet massa fusce, sapien litora in elementum lacinia est.
+        Curabitur luctus montes inceptos nunc id velit dictumst platea, laoreet class eros sociis mauris magnis praesent hac, sagittis auctor sollicitudin ac conubia lobortis imperdiet. \n
 
-Curabitur luctus montes inceptos nunc id velit dictumst platea, laoreet class eros sociis mauris magnis praesent hac, sagittis auctor sollicitudin ac conubia lobortis imperdiet. Blandit vestibulum bibendum mattis taciti, mollis semper suspendisse hendrerit, conubia massa in. Condimentum laoreet nascetur vestibulum non litora molestie inceptos justo sed iaculis dis, metus in convallis lacinia aptent fermentum mi placerat dictumst augue lectus fusce, turpis cum curae cubilia curabitur massa nunc accumsan netus rhoncus.
+        Blandit vestibulum bibendum mattis taciti, mollis semper suspendisse hendrerit, conubia massa in. Condimentum laoreet nascetur vestibulum non litora molestie inceptos justo sed iaculis dis, metus in convallis lacinia aptent fermentum mi placerat dictumst augue lectus fusce, turpis cum curae cubilia curabitur massa nunc accumsan netus rhoncus.
+        Non dignissim ultricies at laoreet massa volutpat sed nisl lobortis, vivamus magna commodo ultrices feugiat dapibus libero vestibulum mi fames, tellus neque metus consequat morbi potenti sapien suscipit. Nisi ultrices donec sociosqu mus sollicitudin ligula potenti per turpis, imperdiet neque sagittis phasellus natoque nullam nostra dapibus. Nam nibh hac bibendum enim sagittis erat, inceptos turpis condimentum eu netus suspendisse placerat, nullam fringilla habitant ad quam. \n\n
 
-Non dignissim ultricies at laoreet massa volutpat sed nisl lobortis, vivamus magna commodo ultrices feugiat dapibus libero vestibulum mi fames, tellus neque metus consequat morbi potenti sapien suscipit. Nisi ultrices donec sociosqu mus sollicitudin ligula potenti per turpis, imperdiet neque sagittis phasellus natoque nullam nostra dapibus. Nam nibh hac bibendum enim sagittis erat, inceptos turpis condimentum eu netus suspendisse placerat, nullam fringilla habitant ad quam.
-
-Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisque metus a suspendisse nulla dis. Pretium mi vehicula venenatis montes semper maecenas imperdiet habitasse posuere, augue aenean sapien elementum nibh habitant iaculis tortor, placerat torquent vulputate netus blandit rhoncus proin facilisis. Fermentum dictum venenatis ultrices rutrum lacinia, cum primis id curae in, auctor praesent pretium luctus. Bibendum aenean a mollis luctus ridiculus torquent tellus urna at, senectus lobortis mattis augue pharetra dapibus sollicitudin scelerisque, himenaeos libero mi dis elementum interdum fringilla id.
-
-<p>Lorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.</p>
-
-<p>Per dignissim natoque hendrerit tempus tellus ultricies dapibus luctus congue vulputate porttitor fames risus dis varius, cubilia a tincidunt integer egestas nec quam placerat vitae ligula suspendisse in nam. Libero nascetur cursus volutpat scelerisque porta mollis, sapien viverra sollicitudin potenti etiam donec, aliquam semper cum accumsan sagittis. Praesent mus rutrum sociis proin ligula fames magna, semper fermentum quisque porttitor diam laoreet massa fusce, sapien litora in elementum lacinia est.</p>
-
-<p>Curabitur luctus montes inceptos nunc id velit dictumst platea, laoreet class eros sociis mauris magnis praesent hac, sagittis auctor sollicitudin ac conubia lobortis imperdiet. Blandit vestibulum bibendum mattis taciti, mollis semper suspendisse hendrerit, conubia massa in. Condimentum laoreet nascetur vestibulum non litora molestie inceptos justo sed iaculis dis, metus in convallis lacinia aptent fermentum mi placerat dictumst augue lectus fusce, turpis cum curae cubilia curabitur massa nunc accumsan netus rhoncus.</p>
-
-<p>Non dignissim ultricies at laoreet massa volutpat sed nisl lobortis, vivamus magna commodo ultrices feugiat dapibus libero vestibulum mi fames, tellus neque metus consequat morbi potenti sapien suscipit. Nisi ultrices donec sociosqu mus sollicitudin ligula potenti per turpis, imperdiet neque sagittis phasellus natoque nullam nostra dapibus. Nam nibh hac bibendum enim sagittis erat, inceptos turpis condimentum eu netus suspendisse placerat, nullam fringilla habitant ad quam.</p>
-
-<p>Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisque metus a suspendisse nulla dis. Pretium mi vehicula venenatis montes semper maecenas imperdiet habitasse posuere, augue aenean sapien elementum nibh habitant iaculis tortor, placerat torquent vulputate netus blandit rhoncus proin facilisis. Fermentum dictum venenatis ultrices rutrum lacinia, cum primis id curae in, auctor praesent pretium luctus. Bibendum aenean a mollis luctus ridiculus torquent tellus urna at, senectus lobortis mattis augue pharetra dapibus sollicitudin scelerisque, himenaeos libero mi dis elementum interdum fringilla id.</p>
+        Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisque metus a suspendisse nulla dis. Pretium mi vehicula venenatis montes semper maecenas imperdiet habitasse posuere, augue aenean sapien elementum nibh habitant iaculis tortor, placerat torquent vulputate netus blandit rhoncus proin facilisis. Fermentum dictum venenatis ultrices rutrum lacinia, cum primis id curae in, auctor praesent pretium luctus. Bibendum aenean a mollis luctus ridiculus torquent tellus urna at, senectus lobortis mattis augue pharetra dapibus sollicitudin scelerisque, himenaeos libero mi dis elementum interdum fringilla id. \n\n
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ligula id, mi morbi mollis velit class aptent urna primis, eros suscipit netus suspendisse vivamus feugiat porta consequat. Pretium montes porttitor fames vehicula faucibus nisl accumsan metus, primis aliquet viverra vestibulum sem facilisis condimentum platea sagittis, dapibus justo lacus vivamus ac quisque ad. Mus per cum praesent hendrerit lacus varius, cras quis tortor ornare auctor, donec imperdiet turpis risus nec. Dignissim purus massa etiam justo eu inceptos donec congue, quis cras iaculis quam malesuada nunc euismod nisi pretium, magnis tellus aenean augue ut netus cum.</p> \n\n
+        <p>Per dignissim natoque hendrerit tempus tellus ultricies dapibus luctus congue vulputate porttitor fames risus dis varius, cubilia a tincidunt integer egestas nec quam placerat vitae ligula suspendisse in nam. Libero nascetur cursus volutpat scelerisque porta mollis, sapien viverra sollicitudin potenti etiam donec, aliquam semper cum accumsan sagittis. Praesent mus rutrum sociis proin ligula fames magna, semper fermentum quisque porttitor diam laoreet massa fusce, sapien litora in elementum lacinia est.</p> \n
+        <p>Curabitur luctus montes inceptos nunc id velit dictumst platea, laoreet class eros sociis mauris magnis praesent hac, sagittis auctor sollicitudin ac conubia lobortis imperdiet. Blandit vestibulum bibendum mattis taciti, mollis semper suspendisse hendrerit, conubia massa in. Condimentum laoreet nascetur vestibulum non litora molestie inceptos justo sed iaculis dis, metus in convallis lacinia aptent fermentum mi placerat dictumst augue lectus fusce, turpis cum curae cubilia curabitur massa nunc accumsan netus rhoncus.</p>\n
+        <p>Non dignissim ultricies at laoreet massa volutpat sed nisl lobortis, vivamus magna commodo ultrices feugiat dapibus libero vestibulum mi fames, tellus neque metus consequat morbi potenti sapien suscipit. Nisi ultrices donec sociosqu mus sollicitudin ligula potenti per turpis, imperdiet neque sagittis phasellus natoque nullam nostra dapibus. Nam nibh hac bibendum enim sagittis erat, inceptos turpis condimentum eu netus suspendisse placerat, nullam fringilla habitant ad quam.</p>\n\n
+        <p>Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisque metus a suspendisse nulla dis. Pretium mi vehicula venenatis montes semper maecenas imperdiet habitasse posuere, augue aenean sapien elementum nibh habitant iaculis tortor, placerat torquent vulputate netus blandit rhoncus proin facilisis. Fermentum dictum venenatis ultrices rutrum lacinia, cum primis id curae in, auctor praesent pretium luctus. Bibendum aenean a mollis luctus ridiculus torquent tellus urna at, senectus lobortis mattis augue pharetra dapibus sollicitudin scelerisque, himenaeos libero mi dis elementum interdum fringilla id.</p>\n\n
 </string>
 
     <string name="back_politics">Volver</string>
@@ -244,7 +248,7 @@ Quam euismod leo nisl molestie vestibulum iaculis natoque fusce, augue scelerisq
     <string name="responseTwentySix_Four">Ecuación de estado</string>
 
     <string name="askTwentySeven">¿Cómo se denomina a los objetos que dejan pasar la luz pero que no se puede ver a través de ellos?</string>
-    <string name="responseTwentySeven_Ok">Traslúcido</string>
+    <string name="responseTwentySeven_Ok">Traslúcidos</string>
 
     <string name="askTwentyEight">¿Quién escribió "El cantar del Mío Cid"?</string>
     <string name="responseTwentyEight_Ok">Anónimo</string>

@@ -1,6 +1,5 @@
 package com.example.capturebehavioural.ui.capture
 
-import android.os.Environment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -29,11 +28,11 @@ class CaptureViewModel: ViewModel() {
 
     fun clickStart() {
         _captureState.value = CaptureState.Start
+    }
 
-        val file = File(Environment.getExternalStorageDirectory(), "prueba.csv")
-
+    fun saveValues(user: String, season: String, sensor: String, file: File) {
         viewModelScope.launch {
-            saveData.invoke(Data(file.path, "sesion1")).collect {
+            saveData.invoke(Data(file.path, season, sensor, user)).collect {
                 when(it) {
                     is Response.Success -> {
                         _responseState.value = Response.Success(it)
