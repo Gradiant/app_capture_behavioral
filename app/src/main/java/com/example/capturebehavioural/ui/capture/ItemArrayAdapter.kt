@@ -1,9 +1,7 @@
 package com.example.capturebehavioural.ui.capture
 
 import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -16,6 +14,7 @@ import java.text.Normalizer
 class ItemArrayAdapter(private val listItemClickListener: ListItemClickListener, private val context: Context) : ListAdapter<ListItem, ItemArrayAdapter.ListenItemViewHolder>(ListItemCallback()) {
 
     private var iteration = 0
+
     class ListItemCallback : DiffUtil.ItemCallback<ListItem>() {
         override fun areItemsTheSame(oldItem: ListItem, newItem: ListItem): Boolean {
             return oldItem == newItem
@@ -31,9 +30,10 @@ class ItemArrayAdapter(private val listItemClickListener: ListItemClickListener,
     }
 
 
-    inner class ListenItemViewHolder(private val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ListenItemViewHolder(private val binding: ListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(listItem : ListItem) {
+        fun bind(listItem: ListItem) {
             if (listItem.response.size == 4) {
                 binding.btSend.visibility = View.GONE
                 binding.etResponse.visibility = View.GONE
@@ -55,7 +55,6 @@ class ItemArrayAdapter(private val listItemClickListener: ListItemClickListener,
                 binding.etResponse.visibility = View.VISIBLE
                 binding.tvAsk.text = listItem.ask
             }
-
             binding.btResponseOne.setOnClickListener {
                 binding.btResponseOne.background = ContextCompat.getDrawable(context, R.color.red)
                 responseButtons(listItem, binding)
@@ -83,11 +82,23 @@ class ItemArrayAdapter(private val listItemClickListener: ListItemClickListener,
             }
 
             binding.btSend.setOnClickListener {
-                for (response in listItem.response){
-                    if(binding.etResponse.text.toString().trim().lowercase().unaccent() == response.lowercase().unaccent()) {
-                        binding.etResponse.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(context,R.drawable.ic_check), null)
+                for (response in listItem.response) {
+                    if (binding.etResponse.text.toString().trim().lowercase()
+                            .unaccent() == response.lowercase().unaccent()
+                    ) {
+                        binding.etResponse.setCompoundDrawablesWithIntrinsicBounds(
+                            null,
+                            null,
+                            ContextCompat.getDrawable(context, R.drawable.ic_check),
+                            null
+                        )
                     } else {
-                        binding.etResponse.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(context,R.drawable.ic_error), null)
+                        binding.etResponse.setCompoundDrawablesWithIntrinsicBounds(
+                            null,
+                            null,
+                            ContextCompat.getDrawable(context, R.drawable.ic_error),
+                            null
+                        )
                     }
                 }
                 binding.etResponse.isEnabled = false
@@ -100,12 +111,16 @@ class ItemArrayAdapter(private val listItemClickListener: ListItemClickListener,
 
     fun responseButtons(listItem: ListItem, binding: ListItemBinding) {
         listItem.response.forEachIndexed { index, s ->
-            if(s == listItem.correct[0]) {
-                when(index) {
-                    0 -> binding.btResponseOne.background = ContextCompat.getDrawable(context, R.color.green)
-                    1 -> binding.btResponseTwo.background = ContextCompat.getDrawable(context, R.color.green)
-                    2 -> binding.btResponseThree.background = ContextCompat.getDrawable(context, R.color.green)
-                    3 -> binding.btResponseFour.background = ContextCompat.getDrawable(context, R.color.green)
+            if (s == listItem.correct[0]) {
+                when (index) {
+                    0 -> binding.btResponseOne.background =
+                        ContextCompat.getDrawable(context, R.color.green)
+                    1 -> binding.btResponseTwo.background =
+                        ContextCompat.getDrawable(context, R.color.green)
+                    2 -> binding.btResponseThree.background =
+                        ContextCompat.getDrawable(context, R.color.green)
+                    3 -> binding.btResponseFour.background =
+                        ContextCompat.getDrawable(context, R.color.green)
                 }
             }
 
