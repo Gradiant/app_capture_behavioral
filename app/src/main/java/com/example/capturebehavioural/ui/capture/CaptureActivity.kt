@@ -1,10 +1,13 @@
 package com.example.capturebehavioural.ui.capture
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.KeyEvent
 import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
@@ -14,10 +17,6 @@ import java.io.FileWriter
 
 class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
 
-    companion object {
-        private const val APP_STORAGE_ACCESS_REQUEST_CODE = 501
-    }
-
     private val touchFile: File = File.createTempFile("TouchEvent", "csv")
     private var fileWriterTouch: FileWriter = FileWriter(touchFile)
 
@@ -26,6 +25,8 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
 
     private val keyFile: File = File.createTempFile("KeyEvent", "csv")
     var fileWriterKey: FileWriter = FileWriter(keyFile)
+
+    var text = ""
 
     private lateinit var viewModel: CaptureViewModel
 
@@ -39,6 +40,7 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture)
 
+
         viewModel = ViewModelProvider(this,
             CaptureViewModel.MainViewModelFactory()
         )[CaptureViewModel::class.java]
@@ -50,6 +52,7 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
         mDetector = GestureDetectorCompat(this, this)
     }
 
+
     override fun onPause() {
         fileWriterScroll.close()
         fileWriterTouch.close()
@@ -59,16 +62,20 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
         viewModel.saveValues(email, season, "KeyEvent", keyFile)
 
         super.onPause()
-
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
         mDetector.onTouchEvent(event)
+        if (currentFocus != null) {
+            val imm = this!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(this!!.currentFocus!!.windowToken, 0)
+        }
         return super.dispatchTouchEvent(event) // so that viewPager and other views also get the event
     }
 
+    @SuppressLint("RestrictedApi")
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
-        return if (event.action == KeyEvent.ACTION_DOWN) {
+        if (event.action == KeyEvent.ACTION_DOWN) {
             try {
                 fileWriterKey.append(System.currentTimeMillis().toString())
                 fileWriterKey.append(',')
@@ -83,7 +90,7 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     this@CaptureActivity.display?.let {
-                        fileWriterScroll.append(it.rotation.toString())
+                        fileWriterKey.append(it.rotation.toString())
                     }
                 } else {
                     @Suppress("DEPRECATION")
@@ -98,9 +105,7 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
                 println("Writing CSV error!")
                 e.printStackTrace()
             }
-            true
         } else if (event.action == KeyEvent.ACTION_UP) {
-
             try {
                 fileWriterKey.append(System.currentTimeMillis().toString())
                 fileWriterKey.append(',')
@@ -115,7 +120,7 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     this@CaptureActivity.display?.let {
-                        fileWriterScroll.append(it.rotation.toString())
+                        fileWriterKey.append(it.rotation.toString())
                     }
                 } else {
                     @Suppress("DEPRECATION")
@@ -130,9 +135,8 @@ class CaptureActivity : FragmentActivity(), GestureDetector.OnGestureListener {
                 println("Writing CSV error!")
                 e.printStackTrace()
             }
-            true
-        } else
-            false
+        }
+        return super.dispatchKeyEvent(event)
     }
 
     override fun onDown(event: MotionEvent?): Boolean {

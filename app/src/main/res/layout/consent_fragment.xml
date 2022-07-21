@@ -19,83 +19,91 @@
         android:layout_height="wrap_content"
         android:text="@string/consent_title_2"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clInfo"
-        android:visibility="visible"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvConsentTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Rellene los siguientes campos">
-        </TextView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clInfo"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editTextName"
-            android:layout_height="wrap_content"
-            android:hint="@string/feedbackname"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:inputType="textEmailAddress"
-            android:layout_margin="@dimen/margin_32"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            android:layout_width="match_parent">
-        </androidx.appcompat.widget.AppCompatEditText>
+            <TextView
+                android:id="@+id/tvTitle"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Rellene los siguientes campos">
+            </TextView>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editTextLastname"
-            android:layout_height="wrap_content"
-            android:hint="@string/feedbacklastname"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:inputType="textEmailAddress"
-            android:layout_margin="@dimen/margin_32"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextName"
-            android:layout_width="match_parent">
-        </androidx.appcompat.widget.AppCompatEditText>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editTextName"
+                android:layout_height="wrap_content"
+                android:hint="@string/feedbackname"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:inputType="textEmailAddress"
+                android:layout_margin="@dimen/margin_32"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                android:layout_width="match_parent">
+            </androidx.appcompat.widget.AppCompatEditText>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editTextAddress"
-            android:layout_height="wrap_content"
-            android:hint="@string/feedbackaddress"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:inputType="textEmailAddress"
-            android:layout_margin="@dimen/margin_32"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextLastname"
-            android:layout_width="match_parent">
-        </androidx.appcompat.widget.AppCompatEditText>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editTextLastname"
+                android:layout_height="wrap_content"
+                android:hint="@string/feedbacklastname"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:inputType="textEmailAddress"
+                android:layout_margin="@dimen/margin_32"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextName"
+                android:layout_width="match_parent">
+            </androidx.appcompat.widget.AppCompatEditText>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/editTextPhone"
-            android:layout_height="wrap_content"
-            android:hint="@string/feedbackphone"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:inputType="textEmailAddress"
-            android:layout_margin="@dimen/margin_32"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextAddress"
-            android:layout_width="match_parent">
-        </androidx.appcompat.widget.AppCompatEditText>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editTextAddress"
+                android:layout_height="wrap_content"
+                android:hint="@string/feedbackaddress"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:inputType="textEmailAddress"
+                android:layout_margin="@dimen/margin_32"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextLastname"
+                android:layout_width="match_parent">
+            </androidx.appcompat.widget.AppCompatEditText>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editTextPhone"
+                android:layout_height="wrap_content"
+                android:hint="@string/feedbackphone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:inputType="textEmailAddress"
+                android:layout_margin="@dimen/margin_32"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTextAddress"
+                android:layout_width="match_parent">
+            </androidx.appcompat.widget.AppCompatEditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <CheckBox
         android:id="@+id/cbConsent1"
